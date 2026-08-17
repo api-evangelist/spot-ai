@@ -1,0 +1,195 @@
+{
+  "item": [
+    {
+      "id": "44146f11-22ca-4e5a-ad88-15b6d1f4310f",
+      "name": "Locations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3d1a5bf-a4b4-477c-a68d-6db14c7b0f01",
+          "name": "Get locations",
+          "request": {
+            "name": "Get locations",
+            "description": {
+              "content": "Gets basic information (id and name) of locations the caller has access to.\n\nResponse data is paginated. The number of locations returned in any single\nresponse will never be greater than the `limit`. If there are more\nlocations that can be requested, the response body will contain a non-null\n`\"next\"` property. Use this `\"next\"` value to request the next page of data\nby submitting a subsequent request with the `cursor` query param set to\nthis value of `\"next\"`. To fetch all pages of data, continue making\nrequests until `\"next\"` is `null` in the response body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Cursor for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of locations to return in a single response. Default is\n`50`. Maximum allowed is `100`."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "794025f0-9b7d-4407-8e87-503ee1d677cf",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"locations\": [\n    {\n      \"id\": 1,\n      \"name\": \"Main Warehouse\"\n    },\n    {\n      \"id\": 2,\n      \"name\": \"Store #2402\"\n    },\n    {\n      \"id\": 3,\n      \"name\": \"Store #119\"\n    }\n  ],\n  \"prev\": \"eyAiaWQiOiA1MCwgImRpcmVjdGlvbiI6ICJwcmV2IiB9\",\n  \"next\": \"eyAiaWQiOiAxMDEsICJkaXJlY3Rpb24iOiAibmV4dCIgfQ==\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "009aa807-8c39-4097-a95e-295b01562aa8",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dev-api.spot.ai/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "19b7a668-3eb3-4d12-980e-0dd9650859f9",
+    "name": "Spot AI — Spot Connect (beta) Analytics Locations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spot AI Developer API\n\nContact Support:\n Name: Spot AI",
+      "type": "text/plain"
+    }
+  }
+}

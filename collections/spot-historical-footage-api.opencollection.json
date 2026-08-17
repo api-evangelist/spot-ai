@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics Historical Footage API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Historical Footage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create historical footage job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/cameras/:cameraId/footage",
+            "params": [
+              {
+                "name": "cameraId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint allows you to trigger a background job to fetch and store historical footage for a camera.\nThe job will run asynchronously and the response will contain the id and status of the job.\nThe Id or redirectId returned can be used to query the status of the job."
+        },
+        {
+          "info": {
+            "name": "Get details of a submitted historical footage request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/cameras/:cameraId/footage/:footageId",
+            "params": [
+              {
+                "name": "cameraId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "footageId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get details of a submitted historical footage request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

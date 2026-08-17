@@ -1,0 +1,386 @@
+{
+  "item": [
+    {
+      "id": "59ab2cd2-02c8-4fda-afce-9a31b33e6091",
+      "name": "Shared Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fc7250ce-1cce-47aa-9860-eadf2088401e",
+          "name": "Create shared camera search view",
+          "request": {
+            "name": "Create shared camera search view",
+            "description": {
+              "content": "This endpoint creates a new shared camera search view. The view has a publicly accessible link that can be shared with anyone.\nThe link will expire after the expiry time. The expiry time is optional. If not provided, the link will expire after 1 week.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                "shared",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"camera_ids\": [\n    \"<double>\"\n  ],\n  \"end\": \"<string>\",\n  \"start\": \"<string>\",\n  \"expiry_in_seconds\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2e99fcb1-40b9-4d90-9691-6e1ff35ba97d",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    "shared",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"camera_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"end\": \"2023-06-29T12:20:05.533Z\",\n  \"start\": \"2023-06-29T10:20:05.533Z\",\n  \"expiry_in_seconds\": 86400\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"5d09fd895fc6b94c468b36a6b0b8788e\",\n  \"link\": \"https://dashboard.spot.ai/o/org-name/s/search/5d09fd895fc6b94c468b36a6b0b8788e\",\n  \"start\": \"2023-08-26T10:20:05.533Z\",\n  \"end\": \"2023-08-26T12:20:05.533Z\",\n  \"camera_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"expiry\": \"2023-08-29T12:20:05.533Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce7c7e12-b0ab-4f69-8585-20b31d903e50",
+          "name": "Get shared camera search view details",
+          "request": {
+            "name": "Get shared camera search view details",
+            "description": {
+              "content": "This endpoint retrieves the shared camera search URL details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                "shared",
+                "search",
+                ":token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f9456104-7d8c-47a8-b641-e14e54b67635",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    "shared",
+                    "search",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"5d09fd895fc6b94c468b36a6b0b8788e\",\n  \"link\": \"https://dashboard.spot.ai/o/org-name/s/search/5d09fd895fc6b94c468b36a6b0b8788e\",\n  \"start\": \"2023-08-26T10:20:05.533Z\",\n  \"end\": \"2023-08-26T12:20:05.533Z\",\n  \"camera_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"expiry\": \"2023-08-29T12:20:05.533Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0868c3a-2e1c-40d3-9311-f8cb64fb3ada",
+          "name": "Update shared camera search view details",
+          "request": {
+            "name": "Update shared camera search view details",
+            "description": {
+              "content": "This endpoint updates an existing shared camera search view. It allows updating the start, end time and the expiry of the shared search.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                "shared",
+                "search",
+                ":token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": \"<string>\",\n  \"end\": \"<string>\",\n  \"expiry_in_seconds\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fb8ac9a3-87e5-41e1-9fcd-a2b8ebdb88e3",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    "shared",
+                    "search",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"2023-06-29T10:20:05.533Z\",\n  \"end\": \"2023-06-29T12:20:05.533Z\",\n  \"expiry_in_seconds\": 86400\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"5d09fd895fc6b94c468b36a6b0b8788e\",\n  \"link\": \"https://dashboard.spot.ai/o/org-name/s/search/5d09fd895fc6b94c468b36a6b0b8788e\",\n  \"start\": \"2023-08-26T10:20:05.533Z\",\n  \"end\": \"2023-08-26T12:20:05.533Z\",\n  \"camera_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"expiry\": \"2023-08-29T12:20:05.533Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dev-api.spot.ai/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3790dd8c-709f-4085-a888-a6fbcf1b8412",
+    "name": "Spot AI — Spot Connect (beta) Analytics Shared Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spot AI Developer API\n\nContact Support:\n Name: Spot AI",
+      "type": "text/plain"
+    }
+  }
+}

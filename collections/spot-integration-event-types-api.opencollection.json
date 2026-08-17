@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics Integration Event Types API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Integration Event Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all event types for integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/event-types",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the event types belong to"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "- Cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "- Number of cameras to return. Max 100"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns a paginated list of all integration event types\nassociated with an integration that the caller has access to.\nEvent types that the caller does not have access to will not be included\nin the response."
+        },
+        {
+          "info": {
+            "name": "Create integration event type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/event-types",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the event type belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint creates a new integration event type.\n\nUsers will be able to define their own event schema by specifying\nkey-value pairs in json schema format conforming to Spot's meta-schema."
+        },
+        {
+          "info": {
+            "name": "Get integration event type by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/event-types/:integration_event_type_id",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the event type belongs to"
+              },
+              {
+                "name": "integration_event_type_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration event type"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns details of an integration event type.\nDetails include integration event type name and integration event type schema."
+        },
+        {
+          "info": {
+            "name": "Update integration event type name",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/event-types/:integration_event_type_id",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the event type belongs to"
+              },
+              {
+                "name": "integration_event_type_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration event type"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint can be used to update properties of an integration event type."
+        },
+        {
+          "info": {
+            "name": "Delete integration event type",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/event-types/:integration_event_type_id",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the event type belongs to"
+              },
+              {
+                "name": "integration_event_type_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration event type"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes an integration event type. All events of that integration event type will also be deleted."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

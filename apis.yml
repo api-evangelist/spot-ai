@@ -1,5 +1,5 @@
-aid: spot
-name: Spot
+aid: spot-ai
+name: Spot AI
 description: >-
   Spot AI is a physical-security video-AI platform that turns surveillance
   cameras into AI agents which monitor spaces 24/7, detect suspicious activity,
@@ -12,7 +12,7 @@ description: >-
   Spot Connect (a beta integrations platform that links external business events
   to camera footage via integrations, devices, event types, and events, with
   signed RSA256 webhooks for real-time delivery).
-url: https://raw.githubusercontent.com/api-evangelist/spot/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/spot-ai/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -53,7 +53,7 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 apis:
-- aid: spot:spot-analytics-api
+- aid: spot-ai:spot-analytics-api
   name: Spot Analytics API
   description: The Analytics API from Spot — 3 operation(s) for analytics.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -63,7 +63,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-analytics-api-openapi.yml
-- aid: spot:spot-appliances-api
+- aid: spot-ai:spot-appliances-api
   name: Spot Appliances API
   description: The Appliances API from Spot — 2 operation(s) for appliances.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -73,7 +73,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-appliances-api-openapi.yml
-- aid: spot:spot-audio-api
+- aid: spot-ai:spot-audio-api
   name: Spot Audio API
   description: The Audio API from Spot — 1 operation(s) for audio.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -83,7 +83,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-audio-api-openapi.yml
-- aid: spot:spot-cameras-api
+- aid: spot-ai:spot-cameras-api
   name: Spot Cameras API
   description: The Cameras API from Spot — 8 operation(s) for cameras.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -93,7 +93,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-cameras-api-openapi.yml
-- aid: spot:spot-embeds-api
+- aid: spot-ai:spot-embeds-api
   name: Spot Embeds API
   description: The Embeds API from Spot — 2 operation(s) for embeds.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -103,7 +103,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-embeds-api-openapi.yml
-- aid: spot:spot-historical-footage-api
+- aid: spot-ai:spot-historical-footage-api
   name: Spot Historical Footage API
   description: The Historical Footage API from Spot — 2 operation(s) for historical footage.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -113,7 +113,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-historical-footage-api-openapi.yml
-- aid: spot:spot-integration-devices-api
+- aid: spot-ai:spot-integration-devices-api
   name: Spot Integration Devices API
   description: The Integration Devices API from Spot — 3 operation(s) for integration devices.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -123,7 +123,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-integration-devices-api-openapi.yml
-- aid: spot:spot-integration-event-types-api
+- aid: spot-ai:spot-integration-event-types-api
   name: Spot Integration Event Types API
   description: The Integration Event Types API from Spot — 2 operation(s) for integration event types.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -133,7 +133,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-integration-event-types-api-openapi.yml
-- aid: spot:spot-integration-events-api
+- aid: spot-ai:spot-integration-events-api
   name: Spot Integration Events API
   description: The Integration Events API from Spot — 3 operation(s) for integration events.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -143,7 +143,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-integration-events-api-openapi.yml
-- aid: spot:spot-integrations-api
+- aid: spot-ai:spot-integrations-api
   name: Spot Integrations API
   description: The Integrations API from Spot — 2 operation(s) for integrations.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -153,7 +153,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-integrations-api-openapi.yml
-- aid: spot:spot-locations-api
+- aid: spot-ai:spot-locations-api
   name: Spot Locations API
   description: The Locations API from Spot — 1 operation(s) for locations.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -163,7 +163,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-locations-api-openapi.yml
-- aid: spot:spot-lpi-api
+- aid: spot-ai:spot-lpi-api
   name: Spot LPI API
   description: The LPI API from Spot — 1 operation(s) for lpi.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -173,7 +173,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-lpi-api-openapi.yml
-- aid: spot:spot-lpr-api
+- aid: spot-ai:spot-lpr-api
   name: Spot LPR API
   description: The LPR API from Spot — 1 operation(s) for lpr.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -183,7 +183,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-lpr-api-openapi.yml
-- aid: spot:spot-shared-search-api
+- aid: spot-ai:spot-shared-search-api
   name: Spot Shared Search API
   description: The Shared Search API from Spot — 2 operation(s) for shared search.
   humanURL: https://developers.spot.ai/reference/introduction
@@ -193,7 +193,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/spot-shared-search-api-openapi.yml
-- aid: spot:spot-zones-api
+- aid: spot-ai:spot-zones-api
   name: Spot Zones API
   description: The Zones API from Spot — 1 operation(s) for zones.
   humanURL: https://developers.spot.ai/reference/introduction

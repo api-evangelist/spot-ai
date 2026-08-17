@@ -1,0 +1,1277 @@
+{
+  "item": [
+    {
+      "id": "61eaced4-ac3b-4efd-b9b5-14a795860e8b",
+      "name": "Integration Devices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e028d401-49ec-4e3e-900a-2262d95ff532",
+          "name": "Create integration device",
+          "request": {
+            "name": "Create integration device",
+            "description": {
+              "content": "This endpoint creates a new integration device. You can choose up to four\ncameras in the same location to tie to the integration device.\n\nWhenever there is an event from this integration device, you will\nautomatically see the footage from all attached cameras.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                ":integration_id",
+                "devices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_id",
+                  "description": "(Required) - ID of the integration that the device belongs to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"camera_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "35d0ef57-8ad6-4bfa-9be0-4efa8ad47803",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the device belongs to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My Integration Device\",\n  \"camera_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"tags\": [\n    \"Tag1\",\n    \"Tag2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integration_device\": {\n    \"id\": 51,\n    \"integration_id\": 1,\n    \"name\": \"Device 51\",\n    \"external_id\": \"STORE-042:LANE-3\",\n    \"camera_ids\": [\n      1,\n      2,\n      3\n    ],\n    \"tags\": [\n      \"tag1\",\n      \"tag2\"\n    ],\n    \"created\": \"2023-06-29T12:20:05.533Z\",\n    \"updated\": \"2023-06-29T12:20:05.533Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7df5b7d-97e5-4c4d-bc78-347543919e44",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the device belongs to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My Integration Device\",\n  \"camera_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"tags\": [\n    \"Tag1\",\n    \"Tag2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "430d1636-2cb2-4cba-ba71-e434b0a98d9e",
+          "name": "Get all devices for integration",
+          "request": {
+            "name": "Get all devices for integration",
+            "description": {
+              "content": "This endpoint returns a paginated list of all devices in an integration\nthat the caller has access to, along with the cameras associated with each device.\nDevices that the caller does not have access to will not be included in the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                ":integration_id",
+                "devices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "camera_ids",
+                  "value": "<integer>",
+                  "description": "- List of camera ids to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "camera_ids",
+                  "value": "<integer>",
+                  "description": "- List of camera ids to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "- List of tags to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "- List of tags to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "- Cursor for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "- Number of cameras to return. Max 100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_id",
+                  "description": "(Required) - ID of the integration that the devices belong to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3f4a5346-9d69-434e-884e-51e9a4ac7e85",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "camera_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "camera_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the devices belong to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integration_devices\": [\n    {\n      \"id\": 51,\n      \"integration_id\": 1,\n      \"name\": \"Device 51\",\n      \"external_id\": \"STORE-042:LANE-3\",\n      \"camera_ids\": [\n        1,\n        2,\n        3\n      ],\n      \"tags\": [\n        \"tag1\",\n        \"tag2\"\n      ],\n      \"created\": \"2023-06-29T12:20:05.533Z\",\n      \"updated\": \"2023-06-29T12:20:05.533Z\"\n    }\n  ],\n  \"prev\": \"eyAiaWQiOiA1MCwgImRpcmVjdGlvbiI6ICJwcmV2IiB9\",\n  \"next\": \"eyAiaWQiOiAxMDEsICJkaXJlY3Rpb24iOiAibmV4dCIgfQ==\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8febd058-1f2d-40de-ae7c-da87d0ce0ff5",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "devices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "camera_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "camera_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the devices belong to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2103c12c-f45a-4c73-89c7-5bb1e2aae6d5",
+          "name": "Delete an integration device",
+          "request": {
+            "name": "Delete an integration device",
+            "description": {
+              "content": "This endpoint deletes an integration device. All integration events\nassociated with the integration device will also be deleted. Required\nparameters are integration ID and integration device ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                ":integration_id",
+                "devices",
+                ":integration_device_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_id",
+                  "description": "(Required) - ID of the integration"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_device_id",
+                  "description": "(Required) - ID of the integration device"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "73eda409-16b6-41ce-ba54-d4c6a0d96fcf",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "devices",
+                    ":integration_device_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_device_id",
+                      "description": "(Required) - ID of the integration device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integration_device\": {\n    \"id\": 51,\n    \"integration_id\": 1,\n    \"name\": \"Device 51\",\n    \"external_id\": \"STORE-042:LANE-3\",\n    \"camera_ids\": [\n      1,\n      2,\n      3\n    ],\n    \"tags\": [\n      \"tag1\",\n      \"tag2\"\n    ],\n    \"created\": \"2023-06-29T12:20:05.533Z\",\n    \"updated\": \"2023-06-29T12:30:00.533Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77838532-1607-41ab-b1ce-8a95b6913979",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "devices",
+                    ":integration_device_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_device_id",
+                      "description": "(Required) - ID of the integration device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf4343a9-35b2-4ae2-ac18-6ba2609a7a22",
+          "name": "Get integration device by id",
+          "request": {
+            "name": "Get integration device by id",
+            "description": {
+              "content": "This endpoint returns details of an integration device, which include\ndevice name, tags, integration ID, linked camera IDs, and audit stamps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                ":integration_id",
+                "devices",
+                ":integration_device_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_id",
+                  "description": "(Required) - ID of the integration that the device belongs to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_device_id",
+                  "description": "(Required) - ID of the integration device"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d4430967-b8df-4220-ba3e-6dbc4dd84c47",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "devices",
+                    ":integration_device_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the device belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_device_id",
+                      "description": "(Required) - ID of the integration device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integration_device\": {\n    \"id\": 51,\n    \"integration_id\": 1,\n    \"name\": \"Device 51\",\n    \"external_id\": \"STORE-042:LANE-3\",\n    \"camera_ids\": [\n      1,\n      2,\n      3\n    ],\n    \"tags\": [\n      \"tag1\",\n      \"tag2\"\n    ],\n    \"created\": \"2023-06-29T12:20:05.533Z\",\n    \"updated\": \"2023-06-29T12:20:05.533Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "665921e8-f86a-4206-93b3-96d63294db6c",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "devices",
+                    ":integration_device_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the device belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_device_id",
+                      "description": "(Required) - ID of the integration device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "499b3eaf-c494-4aaf-852b-308bef772616",
+          "name": "Update integration device properties",
+          "request": {
+            "name": "Update integration device properties",
+            "description": {
+              "content": "This endpoint can be used to update an existing integration device's name and tags.\n\nNote: The `external_id` field cannot be updated after device creation, as it serves\nas an immutable identifier for automatic device resolution during event ingestion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                ":integration_id",
+                "devices",
+                ":integration_device_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_id",
+                  "description": "(Required) - ID of the integration that the device belongs to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_device_id",
+                  "description": "(Required) - ID of the integration device"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "59155fca-fb62-476b-98bb-8118f02a9c74",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "devices",
+                    ":integration_device_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the device belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_device_id",
+                      "description": "(Required) - ID of the integration device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My Integration Device\",\n  \"tags\": [\n    \"Tag1\",\n    \"Tag2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integration_device\": {\n    \"id\": 51,\n    \"integration_id\": 1,\n    \"name\": \"Device 51 - Updated\",\n    \"external_id\": \"STORE-042:LANE-3\",\n    \"camera_ids\": [\n      1,\n      2,\n      3\n    ],\n    \"tags\": [\n      \"tag1\",\n      \"tag2\"\n    ],\n    \"created\": \"2023-06-29T12:20:05.533Z\",\n    \"updated\": \"2023-06-29T12:30:00.000Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "845b85da-daab-466e-8860-7350f969d4ef",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "devices",
+                    ":integration_device_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the device belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_device_id",
+                      "description": "(Required) - ID of the integration device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My Integration Device\",\n  \"tags\": [\n    \"Tag1\",\n    \"Tag2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16713cec-c3d9-4ad3-ac0c-ee5a08366a9f",
+          "name": "Update integration device camera links",
+          "request": {
+            "name": "Update integration device camera links",
+            "description": {
+              "content": "This endpoint can be used to update the cameras associated with an\nintegration device. Up to four cameras in the same location may be\ntied to an integration device.\n\nNotes:\n1) Older events will reference the new cameras.\n2) If the updated cameras are in a different location, it may affect\nusers' access to the integration device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                ":integration_id",
+                "devices",
+                ":integration_device_id",
+                "cameras"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_id",
+                  "description": "(Required) - ID of the integration that the device belongs to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_device_id",
+                  "description": "(Required) - ID of the integration device"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"camera_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9dca89d5-361e-47fa-b3ed-fc9ed95b7450",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "devices",
+                    ":integration_device_id",
+                    "cameras"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the device belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_device_id",
+                      "description": "(Required) - ID of the integration device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"camera_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integration_device\": {\n    \"id\": 51,\n    \"integration_id\": 1,\n    \"name\": \"Device 51 - Updated\",\n    \"external_id\": \"STORE-042:LANE-3\",\n    \"camera_ids\": [\n      1,\n      2,\n      4\n    ],\n    \"tags\": [\n      \"tag1\",\n      \"tag2\",\n      \"tag3\"\n    ],\n    \"created\": \"2023-06-29T12:20:05.533Z\",\n    \"updated\": \"2023-06-29T12:30:00.000Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a03e31ed-fc71-4f78-b6f9-5e301893825b",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "devices",
+                    ":integration_device_id",
+                    "cameras"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the device belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_device_id",
+                      "description": "(Required) - ID of the integration device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"camera_ids\": [\n    1,\n    2,\n    3\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dev-api.spot.ai/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e1669362-7233-47a8-8f81-5e450b747651",
+    "name": "Spot AI — Spot Connect (beta) Analytics Integration Devices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spot AI Developer API\n\nContact Support:\n Name: Spot AI",
+      "type": "text/plain"
+    }
+  }
+}

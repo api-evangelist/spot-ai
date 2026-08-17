@@ -1,0 +1,242 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics Cameras API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cameras",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create historical footage job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/cameras/:cameraId/footage",
+            "params": [
+              {
+                "name": "cameraId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint allows you to trigger a background job to fetch and store historical footage for a camera.\nThe job will run asynchronously and the response will contain the id and status of the job.\nThe Id or redirectId returned can be used to query the status of the job."
+        },
+        {
+          "info": {
+            "name": "Create shared camera search view",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/cameras/shared/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint creates a new shared camera search view. The view has a publicly accessible link that can be shared with anyone.\nThe link will expire after the expiry time. The expiry time is optional. If not provided, the link will expire after 1 week."
+        },
+        {
+          "info": {
+            "name": "Get camera information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/cameras/:cameraId",
+            "params": [
+              {
+                "name": "cameraId",
+                "value": "",
+                "type": "path",
+                "description": "- Id of the camera"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns information about a single camera."
+        },
+        {
+          "info": {
+            "name": "Get camera count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/cameras/count",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns the number of enabled cameras for an organization"
+        },
+        {
+          "info": {
+            "name": "Get a paginated list of cameras",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/cameras",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "- Cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "- Number of cameras to return. Max 100"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query",
+                "description": "- Location ids to filter by. When present, only returns cameras associated with the indicated locations."
+              },
+              {
+                "name": "appliance_ids",
+                "value": "",
+                "type": "query",
+                "description": "- Appliance ids to filter by. When present, only returns cameras associated with the indicated appliances."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "- Status to filter by (\"online\" or \"offline\"). When present, only returns cameras with the indicated status."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Paginated list of cameras for an org. Response contains a cursor for pagination."
+        },
+        {
+          "info": {
+            "name": "Get details of a submitted historical footage request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/cameras/:cameraId/footage/:footageId",
+            "params": [
+              {
+                "name": "cameraId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "footageId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get details of a submitted historical footage request"
+        },
+        {
+          "info": {
+            "name": "Get a url to a live stream of the cameras",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/cameras/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a url to a live stream of the cameras"
+        },
+        {
+          "info": {
+            "name": "Get shared camera search view details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/cameras/shared/search/:token",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint retrieves the shared camera search URL details."
+        },
+        {
+          "info": {
+            "name": "Update shared camera search view details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://dev-api.spot.ai/v1/cameras/shared/search/:token",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint updates an existing shared camera search view. It allows updating the start, end time and the expiry of the shared search."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

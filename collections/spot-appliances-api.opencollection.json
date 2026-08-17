@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics Appliances API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Appliances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get appliance information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/appliances/:applianceId",
+            "params": [
+              {
+                "name": "applianceId",
+                "value": "",
+                "type": "path",
+                "description": "- Id of the appliance"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns information about a single appliance."
+        },
+        {
+          "info": {
+            "name": "Get a paginated list of appliances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/appliances",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "- Cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "- Number of appliances to return. Max 100"
+              },
+              {
+                "name": "location_ids",
+                "value": "",
+                "type": "query",
+                "description": "- Location ids to filter by. When present, only returns appliances associated with the indicated locations."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns a paginated list of appliances for an org. Response contains a cursor for pagination."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

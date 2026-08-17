@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics Locations API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/locations",
+            "params": [
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of locations to return in a single response. Default is\n`50`. Maximum allowed is `100`."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Gets basic information (id and name) of locations the caller has access to.\n\nResponse data is paginated. The number of locations returned in any single\nresponse will never be greater than the `limit`. If there are more\nlocations that can be requested, the response body will contain a non-null\n`\"next\"` property. Use this `\"next\"` value to request the next page of data\nby submitting a subsequent request with the `cursor` query param set to\nthis value of `\"next\"`. To fetch all pages of data, contin"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

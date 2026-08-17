@@ -1,0 +1,354 @@
+{
+  "item": [
+    {
+      "id": "ce778ea1-930b-4f6f-9e85-f7e88ff9b9d9",
+      "name": "LPR",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "06dc0d49-8856-49d7-8b9e-0d60d5111d5d",
+          "name": "LPR Report",
+          "request": {
+            "name": "LPR Report",
+            "description": {
+              "content": "Get LPR report for a camera. Camera should be LPR enabled",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lpr",
+                "cameras",
+                ":camera_id",
+                "report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<string>",
+                  "description": "(Required) ISO 8601 date-time string (UTC) indicating the beginning of the date range filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<string>",
+                  "description": "(Required) ISO 8601 date-time string (UTC) indicating the end of the date range filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "0",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "1",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "2",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "3",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "4",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "5",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "6",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "plates",
+                  "value": "<string>",
+                  "description": "Array of strings indicating which plates to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "plates",
+                  "value": "<string>",
+                  "description": "Array of strings indicating which plates to include in the results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "camera_id",
+                  "description": "(Required) Id of the camera"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "db42abc0-384b-4ba9-a5dd-3b4352268c4e",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lpr",
+                    "cameras",
+                    ":camera_id",
+                    "report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "0"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "2"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "3"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "4"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "5"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "6"
+                    },
+                    {
+                      "key": "plates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "plates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "camera_id",
+                      "description": "(Required) Id of the camera"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"plates\": [\n    {\n      \"first_seen\": \"2020-01-01T00:00:00.000Z\",\n      \"last_seen\": \"2020-01-01T00:00:00.000Z\",\n      \"plate\": \"plate\",\n      \"type_id\": 1,\n      \"visits\": 1\n    },\n    {\n      \"first_seen\": \"2020-01-01T00:00:00.000Z\",\n      \"last_seen\": \"2020-01-01T00:00:00.000Z\",\n      \"plate\": \"plate1\",\n      \"type_id\": 2,\n      \"visits\": 3\n    }\n  ],\n  \"summary\": {\n    \"most_visits_by_plate\": 6,\n    \"total_visits\": 10,\n    \"unique_plates\": 2\n  },\n  \"timeseries\": [\n    {\n      \"date\": \"2023-01-01\",\n      \"visits\": 1\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b25a3a9c-0b2e-4893-83c8-2c3c8c0eec34",
+              "name": "Validation Failed. The error could be due to:\n      1) The maximum date range is 30 days.\n      2) Invalid time format. Please use the 24-hour format (HH:mm).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lpr",
+                    "cameras",
+                    ":camera_id",
+                    "report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "0"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "2"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "3"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "4"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "5"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "6"
+                    },
+                    {
+                      "key": "plates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "plates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "camera_id",
+                      "description": "(Required) Id of the camera"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"The maximum date range is 30 days\",\n  \"statusCode\": 422,\n  \"name\": \"InvalidDateRangeError\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dev-api.spot.ai/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "061ce551-00ed-4299-9da3-d17582ae5f38",
+    "name": "Spot AI — Spot Connect (beta) Analytics LPR API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spot AI Developer API\n\nContact Support:\n Name: Spot AI",
+      "type": "text/plain"
+    }
+  }
+}

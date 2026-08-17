@@ -1,0 +1,185 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics Integration Events API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Integration Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Import Integration Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/events/import",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the events belong to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint allows for importing a list of events.\n\nRequired parameters include timestamp, device ID, and the user-defined schema/metadata.\n\nFor single events forwarded through a webhook, use the Ingest Integration Event endpoint."
+        },
+        {
+          "info": {
+            "name": "Update Integration Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/events/:integration_event_id",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the event belongs to"
+              },
+              {
+                "name": "integration_event_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration event to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint allows for updating the attributes, duration, and buffer of an event.\nWhen updating attributes, only updated values should be included. These will overwrite existing values."
+        },
+        {
+          "info": {
+            "name": "Delete Integration Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/events/:integration_event_id",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "integration_event_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint deletes an existing integration event."
+        },
+        {
+          "info": {
+            "name": "Get all integration events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/events",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the events belong to"
+              },
+              {
+                "name": "integrationEventTypeIds",
+                "value": "",
+                "type": "query",
+                "description": "- List of integration event type ids to filter by"
+              },
+              {
+                "name": "integrationDeviceIds",
+                "value": "",
+                "type": "query",
+                "description": "- List of integration device ids to filter by"
+              },
+              {
+                "name": "cameraIds",
+                "value": "",
+                "type": "query",
+                "description": "- List of camera ids to filter by"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "- Start date to filter by"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "- End date to filter by"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint retrieves a list of all integration events for an integration that the caller has access to,\nand allows filter criteria to support searching for specific events.\nEvents that the caller does not have access to will not be included in the response."
+        },
+        {
+          "info": {
+            "name": "Ingest Integration Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/events",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the event belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint creates a new integration event. Required parameters include\ntimestamp and the user-defined schema/metadata (attributes).\n\n**Device Resolution:**\n\nDevice identification follows this precedence order:\n1. `integration_device_id` — if provided, used directly (highest precedence)\n2. `device_external_id` — if provided, looks up or auto-creates a device with that external ID\n3. **Device ID Template** — if configured on the event type, evaluates the template against\n   event attributes to"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

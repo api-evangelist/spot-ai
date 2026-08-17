@@ -1,0 +1,228 @@
+{
+  "item": [
+    {
+      "id": "2ce1df8e-faeb-4229-a2a3-fd6107720a2f",
+      "name": "LPI",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4703e80f-981b-4389-b764-4bb9d6987b8c",
+          "name": "Create a Licence Plate Interest List",
+          "request": {
+            "name": "Create a Licence Plate Interest List",
+            "description": {
+              "content": "Create a Licence Plate Interest List",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lpi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b9aa6c40-d504-492f-a73a-479c925a299d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lpi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"source\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"source\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"name\": \"My Interest List\",\n  \"type\": \"LPI\",\n  \"items\": [\n    {\n      \"name\": \"ABC123\",\n      \"notes\": \"Most common plate\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21baa465-c8a0-4938-89b0-7237267237f9",
+          "name": "Get all Licence Plate Interest Lists",
+          "request": {
+            "name": "Get all Licence Plate Interest Lists",
+            "description": {
+              "content": "Get all Licence Plate Interest Lists",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "lpi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8254d8f1-d554-424c-9aaf-d46364f3e17a",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "lpi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Frequent visitors\",\n    \"type\": \"LPR\",\n    \"items\": [\n      {\n        \"name\": \"ABC123\",\n        \"notes\": \"Most common plate\"\n      },\n      {\n        \"name\": \"DEF456\",\n        \"notes\": \"Second most common plate\"\n      }\n    ]\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Suspicious visitors\",\n    \"type\": \"LPR\",\n    \"items\": [\n      {\n        \"name\": \"GHI789\",\n        \"notes\": \"Third most common plate\"\n      },\n      {\n        \"name\": \"JKL012\",\n        \"notes\": \"Fourth most common plate\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dev-api.spot.ai/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "afb7d0f0-efa7-4bcb-a95d-a1219c2bd6be",
+    "name": "Spot AI — Spot Connect (beta) Analytics LPI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spot AI Developer API\n\nContact Support:\n Name: Spot AI",
+      "type": "text/plain"
+    }
+  }
+}

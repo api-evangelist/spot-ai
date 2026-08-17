@@ -1,0 +1,216 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics Integration Devices API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Integration Devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all devices for integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/devices",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the devices belong to"
+              },
+              {
+                "name": "camera_ids",
+                "value": "",
+                "type": "query",
+                "description": "- List of camera ids to filter by"
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "- List of tags to filter by"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "- Cursor for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "- Number of cameras to return. Max 100"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns a paginated list of all devices in an integration\nthat the caller has access to, along with the cameras associated with each device.\nDevices that the caller does not have access to will not be included in the response."
+        },
+        {
+          "info": {
+            "name": "Create integration device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/devices",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the device belongs to"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint creates a new integration device. You can choose up to four\ncameras in the same location to tie to the integration device.\n\nWhenever there is an event from this integration device, you will\nautomatically see the footage from all attached cameras."
+        },
+        {
+          "info": {
+            "name": "Get integration device by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/devices/:integration_device_id",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the device belongs to"
+              },
+              {
+                "name": "integration_device_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration device"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint returns details of an integration device, which include\ndevice name, tags, integration ID, linked camera IDs, and audit stamps."
+        },
+        {
+          "info": {
+            "name": "Update integration device properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/devices/:integration_device_id",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the device belongs to"
+              },
+              {
+                "name": "integration_device_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration device"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint can be used to update an existing integration device's name and tags.\n\nNote: The `external_id` field cannot be updated after device creation, as it serves\nas an immutable identifier for automatic device resolution during event ingestion."
+        },
+        {
+          "info": {
+            "name": "Delete an integration device",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/devices/:integration_device_id",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration"
+              },
+              {
+                "name": "integration_device_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration device"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint deletes an integration device. All integration events\nassociated with the integration device will also be deleted. Required\nparameters are integration ID and integration device ID."
+        },
+        {
+          "info": {
+            "name": "Update integration device camera links",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://dev-api.spot.ai/v1/integrations/:integration_id/devices/:integration_device_id/cameras",
+            "params": [
+              {
+                "name": "integration_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration that the device belongs to"
+              },
+              {
+                "name": "integration_device_id",
+                "value": "",
+                "type": "path",
+                "description": "- ID of the integration device"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint can be used to update the cameras associated with an\nintegration device. Up to four cameras in the same location may be\ntied to an integration device.\n\nNotes:\n1) Older events will reference the new cameras.\n2) If the updated cameras are in a different location, it may affect\nusers' access to the integration device."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -138,3 +138,9 @@ tools:
 - name: presence
   description: Presence
   source_operation: openapi/spot-intelligence-openapi.json#Presence
+deployment:
+  mode: none
+  verified: derived
+  tools: 43
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,321 @@
+{
+  "item": [
+    {
+      "id": "f6ce2309-ff34-4ba2-ac8b-de8473a552ee",
+      "name": "Appliances",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b775280f-53ba-47f0-a117-fb11913be7a8",
+          "name": "Get appliance information",
+          "request": {
+            "name": "Get appliance information",
+            "description": {
+              "content": "Returns information about a single appliance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "appliances",
+                ":applianceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "applianceId",
+                  "description": "(Required) - Id of the appliance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c18766e4-dc24-4bc2-8eac-da21be776f9f",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "appliances",
+                    ":applianceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "applianceId",
+                      "description": "(Required) - Id of the appliance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"serial\": \"sn7-123456\",\n  \"last_online\": \"2025-12-16T10:30:00.000Z\",\n  \"location_id\": 1,\n  \"location_name\": \"Location 1\",\n  \"license_sku\": \"LIC-IVR-A12-B34\",\n  \"firmware_version\": \"1.0.0\",\n  \"status\": \"online\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4100317-1e95-49ab-96de-779111c8e08f",
+              "name": "Appliance {applianceId} not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "appliances",
+                    ":applianceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "applianceId",
+                      "description": "(Required) - Id of the appliance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Appliance {applianceId} not found\",\n  \"name\": \"NotFound\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91635213-a460-4aaf-a38e-dbd349b57a6d",
+          "name": "Get a paginated list of appliances",
+          "request": {
+            "name": "Get a paginated list of appliances",
+            "description": {
+              "content": "Returns a paginated list of appliances for an org. Response contains a cursor for pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "appliances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "",
+                  "description": "- Cursor for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "- Number of appliances to return. Max 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<integer>",
+                  "description": "- Location ids to filter by. When present, only returns appliances associated with the indicated locations."
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<integer>",
+                  "description": "- Location ids to filter by. When present, only returns appliances associated with the indicated locations."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1f00ea3d-8395-4525-8edc-0e3c5f344d22",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "appliances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": ""
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"serial\": \"sn7-123456\",\n    \"last_online\": \"2025-12-16T10:30:00.000Z\",\n    \"location_id\": 1,\n    \"location_name\": \"Location 1\",\n    \"license_sku\": \"SKU-123456\",\n    \"firmware_version\": \"1.0.0\",\n    \"status\": \"online\"\n  },\n  {\n    \"id\": 2,\n    \"serial\": \"sn7-123457\",\n    \"last_online\": \"2025-12-16T10:30:00.000Z\",\n    \"location_id\": 2,\n    \"location_name\": \"Location 2\",\n    \"license_sku\": \"SKU-123457\",\n    \"firmware_version\": \"1.0.0\",\n    \"status\": \"online\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dev-api.spot.ai/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ec3f903e-3c26-4c7e-9050-93fb43ba4d08",
+    "name": "Spot AI — Spot Connect (beta) Analytics Appliances API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spot AI Developer API\n\nContact Support:\n Name: Spot AI",
+      "type": "text/plain"
+    }
+  }
+}

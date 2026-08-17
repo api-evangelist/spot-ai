@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics Shared Search API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shared Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create shared camera search view",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/cameras/shared/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint creates a new shared camera search view. The view has a publicly accessible link that can be shared with anyone.\nThe link will expire after the expiry time. The expiry time is optional. If not provided, the link will expire after 1 week."
+        },
+        {
+          "info": {
+            "name": "Get shared camera search view details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/cameras/shared/search/:token",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint retrieves the shared camera search URL details."
+        },
+        {
+          "info": {
+            "name": "Update shared camera search view details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://dev-api.spot.ai/v1/cameras/shared/search/:token",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "This endpoint updates an existing shared camera search view. It allows updating the start, end time and the expiry of the shared search."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

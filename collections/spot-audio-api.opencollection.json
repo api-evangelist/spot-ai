@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics Audio API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Audio",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Play audio through a camera",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/audio/play",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "cameraId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "audio",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Plays an audio file through the speakers associated with the specified camera.\n\nThere are two ways that speakers can be associated with a camera:\n1. The camera is associated with a Bullhorn through an Integration.\n2. The camera has a built in speaker which has Two-Way audio enabled.\n\nIf no associated speakers are found, the audio will not be played (status code 400).\n\nSupported file formats include (but not limited to):\n- MP3\n- WAV\n- M4A\n- OGG\n- FLAC\n\nProcessing may take a moment depending on fi"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

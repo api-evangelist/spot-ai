@@ -1,0 +1,1601 @@
+{
+  "item": [
+    {
+      "id": "3352f249-599a-4562-bae8-e8c52be9a01a",
+      "name": "Cameras",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e33a209f-59d4-4bf1-8dc0-f4db0cbe17eb",
+          "name": "Create historical footage job",
+          "request": {
+            "name": "Create historical footage job",
+            "description": {
+              "content": "This endpoint allows you to trigger a background job to fetch and store historical footage for a camera.\nThe job will run asynchronously and the response will contain the id and status of the job.\nThe Id or redirectId returned can be used to query the status of the job.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                ":cameraId",
+                "footage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cameraId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": \"<string>\",\n  \"end\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2ca8f747-5c7f-412c-97c3-2219f8837af5",
+              "name": "Redirected to existing job",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "footage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cameraId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"2023-06-29T10:20:05.533Z\",\n  \"end\": \"2023-06-29T12:20:05.533Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"redirectId\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9106dc7-657b-420a-a80b-f74e6b024dd5",
+              "name": "Job created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "footage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cameraId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"2023-06-29T10:20:05.533Z\",\n  \"end\": \"2023-06-29T12:20:05.533Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fd4ef3f-c2ea-427f-acf2-7f8ff0d5d20b",
+              "name": "Camera or Organization not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "footage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cameraId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"2023-06-29T10:20:05.533Z\",\n  \"end\": \"2023-06-29T12:20:05.533Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"Camera not found\"\n  },\n  {\n    \"message\": \"Organization not found\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e06a332-d0dc-4bc8-970d-35ae7683028b",
+              "name": "Another request is already in progress for the same time range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "footage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cameraId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"2023-06-29T10:20:05.533Z\",\n  \"end\": \"2023-06-29T12:20:05.533Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"ApiError\",\n  \"statusCode\": 409,\n  \"message\": \"Another request is already in progress for the same time range\",\n  \"data\": {\n    \"overlappingRequest\": {\n      \"id\": 1,\n      \"start\": \"2023-06-29T12:20:05.533Z\",\n      \"end\": \"2023-06-30T12:20:05.533Z\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef9bfa6d-3dca-44cf-9b75-0e5f783d6959",
+              "name": "Start and End time for the request are invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "footage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cameraId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"2023-06-29T10:20:05.533Z\",\n  \"end\": \"2023-06-29T12:20:05.533Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"Invalid date format\"\n  },\n  {\n    \"message\": \"Camera has no footage\"\n  },\n  {\n    \"message\": \"Start time is before the earliest available footage segment\"\n  },\n  {\n    \"message\": \"End time is in the future\"\n  },\n  {\n    \"message\": \"Start is before End\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5966b77-fc92-40c2-a1b7-c1f137dbf069",
+          "name": "Create shared camera search view",
+          "request": {
+            "name": "Create shared camera search view",
+            "description": {
+              "content": "This endpoint creates a new shared camera search view. The view has a publicly accessible link that can be shared with anyone.\nThe link will expire after the expiry time. The expiry time is optional. If not provided, the link will expire after 1 week.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                "shared",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"camera_ids\": [\n    \"<double>\"\n  ],\n  \"end\": \"<string>\",\n  \"start\": \"<string>\",\n  \"expiry_in_seconds\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "10b07bf6-5017-4720-8837-41b173dfb05d",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    "shared",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"camera_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"end\": \"2023-06-29T12:20:05.533Z\",\n  \"start\": \"2023-06-29T10:20:05.533Z\",\n  \"expiry_in_seconds\": 86400\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"5d09fd895fc6b94c468b36a6b0b8788e\",\n  \"link\": \"https://dashboard.spot.ai/o/org-name/s/search/5d09fd895fc6b94c468b36a6b0b8788e\",\n  \"start\": \"2023-08-26T10:20:05.533Z\",\n  \"end\": \"2023-08-26T12:20:05.533Z\",\n  \"camera_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"expiry\": \"2023-08-29T12:20:05.533Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48f1eb89-22a3-4fe6-a12b-bc1efeda3de2",
+          "name": "Get camera information",
+          "request": {
+            "name": "Get camera information",
+            "description": {
+              "content": "Returns information about a single camera.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                ":cameraId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cameraId",
+                  "description": "(Required) - Id of the camera"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4629f3cd-90d9-4df9-a17d-e0cfc25ac30d",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cameraId",
+                      "description": "(Required) - Id of the camera"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"name\": \"Camera 1\",\n  \"status\": \"online\",\n  \"location_id\": 1,\n  \"location_name\": \"Location 1\",\n  \"local_ip\": \"192.168.1.100\",\n  \"last_online\": \"2023-06-29T12:20:05.533Z\",\n  \"mac_address\": \"01:23:45:67:89:0A\",\n  \"appliance_id\": 42,\n  \"has_speakers\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a9389c6-e8dd-41d2-ba8f-1ecd503ad842",
+              "name": "Camera not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cameraId",
+                      "description": "(Required) - Id of the camera"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"message\": \"Camera not found\",\n  \"name\": \"QueryError\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8a65aad-0f64-4658-a6a2-6de7c34a9275",
+          "name": "Get camera count",
+          "request": {
+            "name": "Get camera count",
+            "description": {
+              "content": "Returns the number of enabled cameras for an organization",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a31be7c9-283f-4805-a523-6d1897e2d940",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "2",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98822cf9-19fa-4b46-8c96-ccdf5df64702",
+          "name": "Get a paginated list of cameras",
+          "request": {
+            "name": "Get a paginated list of cameras",
+            "description": {
+              "content": "Paginated list of cameras for an org. Response contains a cursor for pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "",
+                  "description": "- Cursor for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "- Number of cameras to return. Max 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<integer>",
+                  "description": "- Location ids to filter by. When present, only returns cameras associated with the indicated locations."
+                },
+                {
+                  "disabled": false,
+                  "key": "location_ids",
+                  "value": "<integer>",
+                  "description": "- Location ids to filter by. When present, only returns cameras associated with the indicated locations."
+                },
+                {
+                  "disabled": false,
+                  "key": "appliance_ids",
+                  "value": "<integer>",
+                  "description": "- Appliance ids to filter by. When present, only returns cameras associated with the indicated appliances."
+                },
+                {
+                  "disabled": false,
+                  "key": "appliance_ids",
+                  "value": "<integer>",
+                  "description": "- Appliance ids to filter by. When present, only returns cameras associated with the indicated appliances."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "- Status to filter by (\"online\" or \"offline\"). When present, only returns cameras with the indicated status."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "01f11879-aa32-464d-b721-bc4810b1ed6c",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": ""
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "appliance_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "appliance_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Camera 1\",\n    \"status\": \"online\",\n    \"location_id\": 1,\n    \"location_name\": \"Location 1\",\n    \"local_ip\": \"192.168.1.100\",\n    \"last_online\": \"2023-06-29T12:20:05.533Z\",\n    \"mac_address\": \"01:23:45:67:89:0A\",\n    \"appliance_id\": 42,\n    \"has_speakers\": true\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Camera 2\",\n    \"status\": \"offline\",\n    \"location_id\": 1,\n    \"location_name\": \"Location 1\",\n    \"local_ip\": \"192.168.1.101\",\n    \"last_online\": \"2023-06-21T09:20:05.533Z\",\n    \"mac_address\": \"01:23:45:67:89:0B\",\n    \"appliance_id\": 42,\n    \"has_speakers\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "449b33cd-a1a4-4a27-8913-81091ab95fb1",
+              "name": "Max limit error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": ""
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "location_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "appliance_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "appliance_ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": \"Max limit error\",\n  \"name\": \"InvalidLimitError\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b756c125-596b-412b-97cd-325ed5cde466",
+          "name": "Get details of a submitted historical footage request",
+          "request": {
+            "name": "Get details of a submitted historical footage request",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                ":cameraId",
+                "footage",
+                ":footageId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<double>",
+                  "key": "cameraId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<double>",
+                  "key": "footageId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "069ecdc8-62ec-47bd-8f0c-dd0144142e1b",
+              "name": "Historical footage request found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "footage",
+                    ":footageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<double>",
+                      "key": "cameraId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<double>",
+                      "key": "footageId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cameraId\": 1,\n  \"start\": \"2023-06-29T12:20:05.533Z\",\n  \"end\": \"2023-06-30T12:20:05.533Z\",\n  \"expiry\": null,\n  \"id\": 1,\n  \"progress\": 20.1,\n  \"createdAt\": \"2023-06-29T13:20:05.533Z\",\n  \"objectPath\": null,\n  \"state\": \"PROCESSING\",\n  \"stateDescription\": \"Job is processing\",\n  \"updatedAt\": \"2023-06-29T13:20:05.533Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e92397b-de9e-44bb-b3e7-5cf2b7424971",
+              "name": "Footage request not found ",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "footage",
+                    ":footageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<double>",
+                      "key": "cameraId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<double>",
+                      "key": "footageId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"message\": \"Camera not found\"\n  },\n  {\n    \"message\": \"Footage request not found\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df08454a-a908-4019-a0ad-fe0b380916a9",
+              "name": "Footage has expired",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "footage",
+                    ":footageId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<double>",
+                      "key": "cameraId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<double>",
+                      "key": "footageId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gone",
+              "code": 410,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"ApiError\",\n  \"statusCode\": 410,\n  \"message\": \"Footage has expired\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50551c7a-2300-4706-913a-8bbec99f2b72",
+          "name": "Get a url to a live stream of the cameras",
+          "request": {
+            "name": "Get a url to a live stream of the cameras",
+            "description": {
+              "content": "Returns a url to a live stream of the cameras",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"camera_ids\": [\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "43b20d81-b17f-403b-b9ef-96b32fdafa8d",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"camera_ids\": [\n    1,\n    2,\n    3,\n    4\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32189b72-613c-4c19-acad-7987e93445f7",
+          "name": "Get shared camera search view details",
+          "request": {
+            "name": "Get shared camera search view details",
+            "description": {
+              "content": "This endpoint retrieves the shared camera search URL details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                "shared",
+                "search",
+                ":token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "97249b7b-bc66-49dd-b05d-bfbd9c9d35d8",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    "shared",
+                    "search",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"5d09fd895fc6b94c468b36a6b0b8788e\",\n  \"link\": \"https://dashboard.spot.ai/o/org-name/s/search/5d09fd895fc6b94c468b36a6b0b8788e\",\n  \"start\": \"2023-08-26T10:20:05.533Z\",\n  \"end\": \"2023-08-26T12:20:05.533Z\",\n  \"camera_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"expiry\": \"2023-08-29T12:20:05.533Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6f0c8e0-ead6-4b86-b13c-7c7c5fa3794f",
+          "name": "Update shared camera search view details",
+          "request": {
+            "name": "Update shared camera search view details",
+            "description": {
+              "content": "This endpoint updates an existing shared camera search view. It allows updating the start, end time and the expiry of the shared search.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                "shared",
+                "search",
+                ":token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start\": \"<string>\",\n  \"end\": \"<string>\",\n  \"expiry_in_seconds\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a98bc054-df57-4015-80cc-344964627da7",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    "shared",
+                    "search",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"2023-06-29T10:20:05.533Z\",\n  \"end\": \"2023-06-29T12:20:05.533Z\",\n  \"expiry_in_seconds\": 86400\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"5d09fd895fc6b94c468b36a6b0b8788e\",\n  \"link\": \"https://dashboard.spot.ai/o/org-name/s/search/5d09fd895fc6b94c468b36a6b0b8788e\",\n  \"start\": \"2023-08-26T10:20:05.533Z\",\n  \"end\": \"2023-08-26T12:20:05.533Z\",\n  \"camera_ids\": [\n    1,\n    2,\n    3\n  ],\n  \"expiry\": \"2023-08-29T12:20:05.533Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dev-api.spot.ai/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a7205acf-1bc8-4cff-8a16-8333df8cda8d",
+    "name": "Spot AI — Spot Connect (beta) Analytics Cameras API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spot AI Developer API\n\nContact Support:\n Name: Spot AI",
+      "type": "text/plain"
+    }
+  }
+}

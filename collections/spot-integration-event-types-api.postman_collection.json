@@ -1,0 +1,1003 @@
+{
+  "item": [
+    {
+      "id": "0f682c1c-8714-482c-88a6-eec6386b5fb6",
+      "name": "Integration Event Types",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "81a40c59-8d91-448a-b34d-030508ba9dc7",
+          "name": "Create integration event type",
+          "request": {
+            "name": "Create integration event type",
+            "description": {
+              "content": "This endpoint creates a new integration event type.\n\nUsers will be able to define their own event schema by specifying\nkey-value pairs in json schema format conforming to Spot's meta-schema.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                ":integration_id",
+                "event-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_id",
+                  "description": "(Required) - ID of the integration that the event type belongs to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"schema\": {},\n  \"duration\": \"<long>\",\n  \"buffer\": \"<long>\",\n  \"external_device_id_template\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "45b57f6e-be15-4e77-b428-73a6cd82fed3",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "event-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the event type belongs to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My Integration Event Type\",\n  \"schema\": {},\n  \"duration\": \"<long>\",\n  \"buffer\": \"<long>\",\n  \"external_device_id_template\": \"{store_id}:{lane}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integration_event_type\": {\n    \"id\": 51,\n    \"integration_id\": 1,\n    \"name\": \"POS Transaction\",\n    \"schema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"store_id\": {\n          \"type\": \"string\"\n        },\n        \"lane\": {\n          \"type\": \"number\"\n        },\n        \"transaction_id\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"store_id\",\n        \"lane\"\n      ]\n    },\n    \"external_device_id_template\": \"{store_id}:{lane}\",\n    \"created\": \"2023-06-29T12:20:05.533Z\",\n    \"updated\": \"2023-06-29T12:20:05.533Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43ba6946-f6d8-4ef7-9293-f9ac181e06a6",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "event-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the event type belongs to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My Integration Event Type\",\n  \"schema\": {},\n  \"duration\": \"<long>\",\n  \"buffer\": \"<long>\",\n  \"external_device_id_template\": \"{store_id}:{lane}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2cc419b-543d-444b-a6e0-cb833bab4dcc",
+          "name": "Get all event types for integration",
+          "request": {
+            "name": "Get all event types for integration",
+            "description": {
+              "content": "This endpoint returns a paginated list of all integration event types\nassociated with an integration that the caller has access to.\nEvent types that the caller does not have access to will not be included\nin the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                ":integration_id",
+                "event-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "- Cursor for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "- Number of cameras to return. Max 100"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_id",
+                  "description": "(Required) - ID of the integration that the event types belong to"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6940f994-45d7-402e-990e-fb0887f89ef5",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "event-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the event types belong to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integration_event_types\": [\n    {\n      \"id\": 51,\n      \"integration_id\": 1,\n      \"name\": \"POS Transaction\",\n      \"schema\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"store_id\": {\n            \"type\": \"string\"\n          },\n          \"lane\": {\n            \"type\": \"number\"\n          },\n          \"transaction_id\": {\n            \"type\": \"string\"\n          }\n        },\n        \"required\": [\n          \"store_id\",\n          \"lane\"\n        ]\n      },\n      \"external_device_id_template\": \"{store_id}:{lane}\",\n      \"created\": \"2023-06-29T12:20:05.533Z\",\n      \"updated\": \"2023-06-29T12:20:05.533Z\"\n    }\n  ],\n  \"prev\": \"eyAiaWQiOiA1MCwgImRpcmVjdGlvbiI6ICJwcmV2IiB9\",\n  \"next\": \"eyAiaWQiOiAxMDEsICJkaXJlY3Rpb24iOiAibmV4dCIgfQ==\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5abb82de-34e5-4d5a-93dd-bfe80da40912",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "event-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the event types belong to"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21b2a11b-6daa-4cd1-8aca-5a27e21b1f65",
+          "name": "Delete integration event type",
+          "request": {
+            "name": "Delete integration event type",
+            "description": {
+              "content": "Deletes an integration event type. All events of that integration event type will also be deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                ":integration_id",
+                "event-types",
+                ":integration_event_type_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_id",
+                  "description": "(Required) - ID of the integration that the event type belongs to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_event_type_id",
+                  "description": "(Required) - ID of the integration event type"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5568412b-466a-49c5-ad40-6da91378449f",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "event-types",
+                    ":integration_event_type_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the event type belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_event_type_id",
+                      "description": "(Required) - ID of the integration event type"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integration_event_type\": {\n    \"id\": 51,\n    \"integration_id\": 1,\n    \"name\": \"POS Transaction\",\n    \"schema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"store_id\": {\n          \"type\": \"string\"\n        },\n        \"lane\": {\n          \"type\": \"number\"\n        },\n        \"transaction_id\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"store_id\",\n        \"lane\"\n      ]\n    },\n    \"external_device_id_template\": \"{store_id}:{lane}\",\n    \"created\": \"2023-06-29T12:20:05.533Z\",\n    \"updated\": \"2023-06-29T12:20:05.533Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de8c2ccc-bee3-49c2-9964-bc7d82ee6bba",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "event-types",
+                    ":integration_event_type_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the event type belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_event_type_id",
+                      "description": "(Required) - ID of the integration event type"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2e70cb3-d26c-4bfe-8225-8946f9c0be31",
+          "name": "Get integration event type by id",
+          "request": {
+            "name": "Get integration event type by id",
+            "description": {
+              "content": "This endpoint returns details of an integration event type.\nDetails include integration event type name and integration event type schema.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                ":integration_id",
+                "event-types",
+                ":integration_event_type_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_id",
+                  "description": "(Required) - ID of the integration that the event type belongs to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_event_type_id",
+                  "description": "(Required) - ID of the integration event type"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9cb24d52-01c2-42f5-bb0c-a7fb309dfc36",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "event-types",
+                    ":integration_event_type_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the event type belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_event_type_id",
+                      "description": "(Required) - ID of the integration event type"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integration_event_type\": {\n    \"id\": 51,\n    \"integration_id\": 1,\n    \"name\": \"POS Transaction\",\n    \"schema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"store_id\": {\n          \"type\": \"string\"\n        },\n        \"lane\": {\n          \"type\": \"number\"\n        },\n        \"transaction_id\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"store_id\",\n        \"lane\"\n      ]\n    },\n    \"external_device_id_template\": \"{store_id}:{lane}\",\n    \"created\": \"2023-06-29T12:20:05.533Z\",\n    \"updated\": \"2023-06-29T12:20:05.533Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b80f10a1-0d1e-406f-93d2-dd3050c20abb",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "event-types",
+                    ":integration_event_type_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the event type belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_event_type_id",
+                      "description": "(Required) - ID of the integration event type"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f919f56a-0189-477e-9316-4903792bfb77",
+          "name": "Update integration event type name",
+          "request": {
+            "name": "Update integration event type name",
+            "description": {
+              "content": "This endpoint can be used to update properties of an integration event type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                ":integration_id",
+                "event-types",
+                ":integration_event_type_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_id",
+                  "description": "(Required) - ID of the integration that the event type belongs to"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "integration_event_type_id",
+                  "description": "(Required) - ID of the integration event type"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"schema\": {},\n  \"duration\": \"<long>\",\n  \"buffer\": \"<long>\",\n  \"external_device_id_template\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "78ef319e-4c84-4c64-a8a9-d728042483e4",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "event-types",
+                    ":integration_event_type_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the event type belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_event_type_id",
+                      "description": "(Required) - ID of the integration event type"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My Integration Event Type\",\n  \"schema\": {},\n  \"duration\": \"<long>\",\n  \"buffer\": \"<long>\",\n  \"external_device_id_template\": \"{store_id}:{lane}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"integration_event_type\": {\n    \"id\": 51,\n    \"integration_id\": 1,\n    \"name\": \"POS Transaction\",\n    \"schema\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"store_id\": {\n          \"type\": \"string\"\n        },\n        \"lane\": {\n          \"type\": \"number\"\n        },\n        \"transaction_id\": {\n          \"type\": \"string\"\n        }\n      },\n      \"required\": [\n        \"store_id\",\n        \"lane\"\n      ]\n    },\n    \"external_device_id_template\": \"{store_id}:{lane}\",\n    \"created\": \"2023-06-29T12:20:05.533Z\",\n    \"updated\": \"2023-06-29T12:20:05.533Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b55f6b5d-8f11-4171-a188-a4f65ce8c07b",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    ":integration_id",
+                    "event-types",
+                    ":integration_event_type_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_id",
+                      "description": "(Required) - ID of the integration that the event type belongs to"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "integration_event_type_id",
+                      "description": "(Required) - ID of the integration event type"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"My Integration Event Type\",\n  \"schema\": {},\n  \"duration\": \"<long>\",\n  \"buffer\": \"<long>\",\n  \"external_device_id_template\": \"{store_id}:{lane}\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dev-api.spot.ai/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6e0a4918-48a6-4948-ace6-cf26b2de35c4",
+    "name": "Spot AI — Spot Connect (beta) Analytics Integration Event Types API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spot AI Developer API\n\nContact Support:\n Name: Spot AI",
+      "type": "text/plain"
+    }
+  }
+}

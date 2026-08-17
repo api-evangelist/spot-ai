@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics LPR API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "LPR",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "LPR Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/lpr/cameras/:camera_id/report",
+            "params": [
+              {
+                "name": "camera_id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the camera"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 date-time string (UTC) indicating the beginning of the date range filter"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "ISO 8601 date-time string (UTC) indicating the end of the date range filter"
+              },
+              {
+                "name": "days_of_week",
+                "value": "",
+                "type": "query",
+                "description": "Array of numbers indicating which days of the week to include in the results"
+              },
+              {
+                "name": "plates",
+                "value": "",
+                "type": "query",
+                "description": "Array of strings indicating which plates to include in the results"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get LPR report for a camera. Camera should be LPR enabled"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

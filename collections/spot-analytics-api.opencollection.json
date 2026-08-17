@@ -1,0 +1,266 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/cameras/:cameraId/intelligence/:entity/counting",
+            "params": [
+              {
+                "name": "cameraId",
+                "value": "",
+                "type": "path",
+                "description": "Id of the camera"
+              },
+              {
+                "name": "entity",
+                "value": "",
+                "type": "path",
+                "description": "Type of entity to filter on (people, vehicles, or forklifts)"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "RFC3339 date string indicating the start of the date range filter (see https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "RFC3339 date string indicating the end of the date range filter (see https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)"
+              },
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query",
+                "description": "Time string indicating the beginning of the time range filter (HH:mm:ss)"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query",
+                "description": "Time string indicating the end of the time range filter (HH:mm:ss)"
+              },
+              {
+                "name": "threshold",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of entities that must be present\nin a frame for it to be considered a presence event"
+              },
+              {
+                "name": "days_of_week",
+                "value": "",
+                "type": "query",
+                "description": "Array of numbers indicating which days of the week to include in the results"
+              },
+              {
+                "name": "bucket_size",
+                "value": "",
+                "type": "query",
+                "description": "Size of the time buckets to group results by"
+              },
+              {
+                "name": "presence_threshold_seconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "presence_filter_seconds",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Count events and summary for a camera"
+        },
+        {
+          "info": {
+            "name": "Idle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/cameras/:cameraId/intelligence/:entity/idle",
+            "params": [
+              {
+                "name": "cameraId",
+                "value": "",
+                "type": "path",
+                "description": "Id of the camera"
+              },
+              {
+                "name": "entity",
+                "value": "",
+                "type": "path",
+                "description": "Type of entity to filter on (people, vehicles, or forklifts)"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "RFC3339 date string indicating the start of the date range filter (see https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "RFC3339 date string indicating the end of the date range filter (see https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)"
+              },
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query",
+                "description": "Time string indicating the beginning of the time range filter (HH:mm:ss)"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query",
+                "description": "Time string indicating the end of the time range filter (HH:mm:ss)"
+              },
+              {
+                "name": "threshold",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of entities that must be present\nin a frame for it to be considered a presence event"
+              },
+              {
+                "name": "days_of_week",
+                "value": "",
+                "type": "query",
+                "description": "Array of numbers indicating which days of the week to include in the results"
+              },
+              {
+                "name": "bucket_size",
+                "value": "",
+                "type": "query",
+                "description": "Size of the time buckets to group results by"
+              },
+              {
+                "name": "presence_threshold_seconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "presence_filter_seconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Idling events and summary for a camera."
+        },
+        {
+          "info": {
+            "name": "Presence",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/cameras/:cameraId/intelligence/:entity/presence",
+            "params": [
+              {
+                "name": "cameraId",
+                "value": "",
+                "type": "path",
+                "description": "Id of the camera"
+              },
+              {
+                "name": "entity",
+                "value": "",
+                "type": "path",
+                "description": "Type of entity to filter on (people, vehicles, or forklifts)"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "RFC3339 date string indicating the start of the date range filter (see https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "RFC3339 date string indicating the end of the date range filter (see https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)"
+              },
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query",
+                "description": "Time string indicating the beginning of the time range filter (HH:mm:ss)"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query",
+                "description": "Time string indicating the end of the time range filter (HH:mm:ss)"
+              },
+              {
+                "name": "threshold",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of entities that must be present\nin a frame for it to be considered a presence event"
+              },
+              {
+                "name": "days_of_week",
+                "value": "",
+                "type": "query",
+                "description": "Array of numbers indicating which days of the week to include in the results"
+              },
+              {
+                "name": "bucket_size",
+                "value": "",
+                "type": "query",
+                "description": "Size of the time buckets to group results by"
+              },
+              {
+                "name": "presence_threshold_seconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "presence_filter_seconds",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Presence events and summary for a camera."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

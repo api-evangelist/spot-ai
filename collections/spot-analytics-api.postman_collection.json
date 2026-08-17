@@ -1,0 +1,1621 @@
+{
+  "item": [
+    {
+      "id": "5c809ffe-f057-46bb-9ad8-1015408dbcff",
+      "name": "Analytics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7d24cfac-1847-4c9f-b13c-c59516a650ce",
+          "name": "Count",
+          "request": {
+            "name": "Count",
+            "description": {
+              "content": "Count events and summary for a camera",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                ":cameraId",
+                "intelligence",
+                ":entity",
+                "counting"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<dateTime>",
+                  "description": "(Required) RFC3339 date string indicating the start of the date range filter (see https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<dateTime>",
+                  "description": "(Required) RFC3339 date string indicating the end of the date range filter (see https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "00:00:00",
+                  "description": "Time string indicating the beginning of the time range filter (HH:mm:ss)"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "23:59:59",
+                  "description": "Time string indicating the end of the time range filter (HH:mm:ss)"
+                },
+                {
+                  "disabled": false,
+                  "key": "threshold",
+                  "value": "1",
+                  "description": "Minimum number of entities that must be present\nin a frame for it to be considered a presence event"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "0",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "1",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "2",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "3",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "4",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "5",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "6",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "bucket_size",
+                  "value": "<string>",
+                  "description": "Size of the time buckets to group results by"
+                },
+                {
+                  "disabled": false,
+                  "key": "presence_threshold_seconds",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "presence_filter_seconds",
+                  "value": "0"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<double>",
+                  "key": "cameraId",
+                  "description": "(Required) Id of the camera"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity",
+                  "description": "(Required) Type of entity to filter on (people, vehicles, or forklifts)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "77a1eb3f-0781-4fa4-b3d4-84ee758ad0e5",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "intelligence",
+                    ":entity",
+                    "counting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "00:00:00"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "23:59:59"
+                    },
+                    {
+                      "key": "threshold",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "0"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "2"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "3"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "4"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "5"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "6"
+                    },
+                    {
+                      "key": "bucket_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "presence_threshold_seconds",
+                      "value": "0"
+                    },
+                    {
+                      "key": "presence_filter_seconds",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<double>",
+                      "key": "cameraId",
+                      "description": "(Required) Id of the camera"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity",
+                      "description": "(Required) Type of entity to filter on (people, vehicles, or forklifts)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bucket_counts\": [\n    {\n      \"bucket_ms\": 1687320000000,\n      \"total_count\": 4,\n      \"idle_count\": 3,\n      \"left_count\": 0,\n      \"right_count\": 0\n    }\n  ],\n  \"entities\": [\n    {\n      \"object_id\": \"1687319780950|1\",\n      \"first_ms\": 1687320000116,\n      \"last_ms\": 1687322686450,\n      \"idle_sum\": 2686,\n      \"queue_num\": 1,\n      \"crossed_left\": null,\n      \"crossed_right\": null\n    },\n    {\n      \"object_id\": \"1687322709401|1\",\n      \"first_ms\": 1687322709567,\n      \"last_ms\": 1687322737567,\n      \"idle_sum\": 27,\n      \"queue_num\": 2,\n      \"crossed_left\": null,\n      \"crossed_right\": null\n    },\n    {\n      \"object_id\": \"1687322759950|1\",\n      \"first_ms\": 1687322760116,\n      \"last_ms\": 1687322760116,\n      \"idle_sum\": 0,\n      \"queue_num\": 3,\n      \"crossed_left\": null,\n      \"crossed_right\": null\n    },\n    {\n      \"object_id\": \"1687322759950|2\",\n      \"first_ms\": 1687322771783,\n      \"last_ms\": 1687323599783,\n      \"idle_sum\": 828,\n      \"queue_num\": 4,\n      \"crossed_left\": null,\n      \"crossed_right\": null\n    }\n  ],\n  \"total_count\": 4\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5af6837-22e8-4d96-b5a3-5f0cc203e069",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "intelligence",
+                    ":entity",
+                    "counting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "00:00:00"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "23:59:59"
+                    },
+                    {
+                      "key": "threshold",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "0"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "2"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "3"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "4"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "5"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "6"
+                    },
+                    {
+                      "key": "bucket_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "presence_threshold_seconds",
+                      "value": "0"
+                    },
+                    {
+                      "key": "presence_filter_seconds",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<double>",
+                      "key": "cameraId",
+                      "description": "(Required) Id of the camera"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity",
+                      "description": "(Required) Type of entity to filter on (people, vehicles, or forklifts)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13c57ea2-9ded-4469-b833-f5f1219413de",
+              "name": "Validation Failed. The error could be due to:\n      1) The maximum date range is 30 days. \n      2) Bucket size cannot be larger than date range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "intelligence",
+                    ":entity",
+                    "counting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "00:00:00"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "23:59:59"
+                    },
+                    {
+                      "key": "threshold",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "0"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "2"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "3"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "4"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "5"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "6"
+                    },
+                    {
+                      "key": "bucket_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "presence_threshold_seconds",
+                      "value": "0"
+                    },
+                    {
+                      "key": "presence_filter_seconds",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<double>",
+                      "key": "cameraId",
+                      "description": "(Required) Id of the camera"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity",
+                      "description": "(Required) Type of entity to filter on (people, vehicles, or forklifts)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"The maximum date range is 30 days\",\n  \"statusCode\": 422,\n  \"name\": \"InvalidDateRangeError\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f92920ee-33c0-4d62-81cd-a731d03b8ebc",
+          "name": "Idle",
+          "request": {
+            "name": "Idle",
+            "description": {
+              "content": "Idling events and summary for a camera.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                ":cameraId",
+                "intelligence",
+                ":entity",
+                "idle"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<dateTime>",
+                  "description": "(Required) RFC3339 date string indicating the start of the date range filter (see https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<dateTime>",
+                  "description": "(Required) RFC3339 date string indicating the end of the date range filter (see https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "00:00:00",
+                  "description": "Time string indicating the beginning of the time range filter (HH:mm:ss)"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "23:59:59",
+                  "description": "Time string indicating the end of the time range filter (HH:mm:ss)"
+                },
+                {
+                  "disabled": false,
+                  "key": "threshold",
+                  "value": "1",
+                  "description": "Minimum number of entities that must be present\nin a frame for it to be considered a presence event"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "0",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "1",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "2",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "3",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "4",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "5",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "6",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "bucket_size",
+                  "value": "<string>",
+                  "description": "Size of the time buckets to group results by"
+                },
+                {
+                  "disabled": false,
+                  "key": "presence_threshold_seconds",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "presence_filter_seconds",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "zone_id",
+                  "value": "<double>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<double>",
+                  "key": "cameraId",
+                  "description": "(Required) Id of the camera"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity",
+                  "description": "(Required) Type of entity to filter on (people, vehicles, or forklifts)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ff96b733-773f-4f46-8860-eeb36210c899",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "intelligence",
+                    ":entity",
+                    "idle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "00:00:00"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "23:59:59"
+                    },
+                    {
+                      "key": "threshold",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "0"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "2"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "3"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "4"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "5"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "6"
+                    },
+                    {
+                      "key": "bucket_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "presence_threshold_seconds",
+                      "value": "0"
+                    },
+                    {
+                      "key": "presence_filter_seconds",
+                      "value": "0"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<double>",
+                      "key": "cameraId",
+                      "description": "(Required) Id of the camera"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity",
+                      "description": "(Required) Type of entity to filter on (people, vehicles, or forklifts)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bucket_counts\": [\n    {\n      \"bucket_ms\": 1687320000000,\n      \"total_count\": 4,\n      \"idle_count\": 3\n    }\n  ],\n  \"idle_count\": 3,\n  \"total_count\": 4,\n  \"average_idle_time_seconds\": 1180,\n  \"average_nonzero_idle_time_seconds\": 1180,\n  \"entities\": [\n    {\n      \"object_id\": \"1687319780950|1\",\n      \"first_ms\": 1687320000116,\n      \"last_ms\": 1687322686450,\n      \"idle_sum\": 2686,\n      \"queue_num\": 1\n    },\n    {\n      \"object_id\": \"1687322709401|1\",\n      \"first_ms\": 1687322709567,\n      \"last_ms\": 1687322737567,\n      \"idle_sum\": 27,\n      \"queue_num\": 2\n    },\n    {\n      \"object_id\": \"1687322759950|1\",\n      \"first_ms\": 1687322760116,\n      \"last_ms\": 1687322760116,\n      \"idle_sum\": 0,\n      \"queue_num\": 3\n    },\n    {\n      \"object_id\": \"1687322759950|2\",\n      \"first_ms\": 1687322771783,\n      \"last_ms\": 1687323599783,\n      \"idle_sum\": 828,\n      \"queue_num\": 4\n    }\n  ],\n  \"max_idle_time_seconds\": 2686\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "facef7ca-b6fd-4ce7-a17d-e9846bf52942",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "intelligence",
+                    ":entity",
+                    "idle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "00:00:00"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "23:59:59"
+                    },
+                    {
+                      "key": "threshold",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "0"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "2"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "3"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "4"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "5"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "6"
+                    },
+                    {
+                      "key": "bucket_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "presence_threshold_seconds",
+                      "value": "0"
+                    },
+                    {
+                      "key": "presence_filter_seconds",
+                      "value": "0"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<double>",
+                      "key": "cameraId",
+                      "description": "(Required) Id of the camera"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity",
+                      "description": "(Required) Type of entity to filter on (people, vehicles, or forklifts)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "244a554e-4b33-475b-9a22-c03d42d9e2a0",
+              "name": "Validation Failed. The error could be due to:\n      1) The maximum date range is 30 days. \n      2) Bucket size cannot be larger than date range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "intelligence",
+                    ":entity",
+                    "idle"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "00:00:00"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "23:59:59"
+                    },
+                    {
+                      "key": "threshold",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "0"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "2"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "3"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "4"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "5"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "6"
+                    },
+                    {
+                      "key": "bucket_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "presence_threshold_seconds",
+                      "value": "0"
+                    },
+                    {
+                      "key": "presence_filter_seconds",
+                      "value": "0"
+                    },
+                    {
+                      "key": "zone_id",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<double>",
+                      "key": "cameraId",
+                      "description": "(Required) Id of the camera"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity",
+                      "description": "(Required) Type of entity to filter on (people, vehicles, or forklifts)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"The maximum date range is 30 days\",\n  \"statusCode\": 422,\n  \"name\": \"InvalidDateRangeError\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "100b3201-cf6e-41b9-85ad-d4ef42a16078",
+          "name": "Presence",
+          "request": {
+            "name": "Presence",
+            "description": {
+              "content": "Presence events and summary for a camera.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "cameras",
+                ":cameraId",
+                "intelligence",
+                ":entity",
+                "presence"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<dateTime>",
+                  "description": "(Required) RFC3339 date string indicating the start of the date range filter (see https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<dateTime>",
+                  "description": "(Required) RFC3339 date string indicating the end of the date range filter (see https://datatracker.ietf.org/doc/html/rfc3339#section-5.6)"
+                },
+                {
+                  "disabled": false,
+                  "key": "start_time",
+                  "value": "00:00:00",
+                  "description": "Time string indicating the beginning of the time range filter (HH:mm:ss)"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_time",
+                  "value": "23:59:59",
+                  "description": "Time string indicating the end of the time range filter (HH:mm:ss)"
+                },
+                {
+                  "disabled": false,
+                  "key": "threshold",
+                  "value": "1",
+                  "description": "Minimum number of entities that must be present\nin a frame for it to be considered a presence event"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "0",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "1",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "2",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "3",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "4",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "5",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "days_of_week",
+                  "value": "6",
+                  "description": "Array of numbers indicating which days of the week to include in the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "bucket_size",
+                  "value": "<string>",
+                  "description": "Size of the time buckets to group results by"
+                },
+                {
+                  "disabled": false,
+                  "key": "presence_threshold_seconds",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "presence_filter_seconds",
+                  "value": "0"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "cameraId",
+                  "description": "(Required) Id of the camera"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "entity",
+                  "description": "(Required) Type of entity to filter on (people, vehicles, or forklifts)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5e077c52-f280-48b5-bf0d-fa5d63aa2a51",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "intelligence",
+                    ":entity",
+                    "presence"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "00:00:00"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "23:59:59"
+                    },
+                    {
+                      "key": "threshold",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "0"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "2"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "3"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "4"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "5"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "6"
+                    },
+                    {
+                      "key": "bucket_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "presence_threshold_seconds",
+                      "value": "0"
+                    },
+                    {
+                      "key": "presence_filter_seconds",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cameraId",
+                      "description": "(Required) Id of the camera"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity",
+                      "description": "(Required) Type of entity to filter on (people, vehicles, or forklifts)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"duration\": 3600000,\n  \"duration_present\": 3557551,\n  \"longest_presence\": {\n    \"start\": 1687320000116,\n    \"end\": 1687322691450,\n    \"length_in_secs\": 2691334\n  },\n  \"longest_absence\": {\n    \"start\": 1687322691450,\n    \"end\": 1687322709567,\n    \"length_in_secs\": 18117\n  },\n  \"buckets\": [\n    {\n      \"start_time\": 1687320000000,\n      \"end_time\": 1687323600000,\n      \"presence_sum\": 3557551,\n      \"events\": [\n        {\n          \"start_ms\": 1687322771783,\n          \"end_ms\": 1687323600000\n        },\n        {\n          \"start_ms\": 1687320000116,\n          \"end_ms\": 1687322691450\n        },\n        {\n          \"start_ms\": 1687322760116,\n          \"end_ms\": 1687322765116\n        },\n        {\n          \"start_ms\": 1687322709567,\n          \"end_ms\": 1687322742567\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eeb21aba-f7af-4df7-9927-f3c8aaa53ec9",
+              "name": "Validation Failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "intelligence",
+                    ":entity",
+                    "presence"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "00:00:00"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "23:59:59"
+                    },
+                    {
+                      "key": "threshold",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "0"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "2"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "3"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "4"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "5"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "6"
+                    },
+                    {
+                      "key": "bucket_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "presence_threshold_seconds",
+                      "value": "0"
+                    },
+                    {
+                      "key": "presence_filter_seconds",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cameraId",
+                      "description": "(Required) Id of the camera"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity",
+                      "description": "(Required) Type of entity to filter on (people, vehicles, or forklifts)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    },\n    {\n      \"field\": \"string\",\n      \"message\": \"string\",\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "011f463a-30f0-42c7-8c55-16f5287a876f",
+              "name": "Validation Failed. The error could be due to:\n      1) The maximum date range is 30 days. \n      2) Bucket size cannot be larger than date range",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "cameras",
+                    ":cameraId",
+                    "intelligence",
+                    ":entity",
+                    "presence"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "start_time",
+                      "value": "00:00:00"
+                    },
+                    {
+                      "key": "end_time",
+                      "value": "23:59:59"
+                    },
+                    {
+                      "key": "threshold",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "0"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "1"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "2"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "3"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "4"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "5"
+                    },
+                    {
+                      "key": "days_of_week",
+                      "value": "6"
+                    },
+                    {
+                      "key": "bucket_size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "presence_threshold_seconds",
+                      "value": "0"
+                    },
+                    {
+                      "key": "presence_filter_seconds",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "cameraId",
+                      "description": "(Required) Id of the camera"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "entity",
+                      "description": "(Required) Type of entity to filter on (people, vehicles, or forklifts)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"The maximum date range is 30 days\",\n  \"statusCode\": 422,\n  \"name\": \"InvalidDateRangeError\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://dev-api.spot.ai/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b6233bbf-ef32-4f03-a0c6-3ead3bfe23b4",
+    "name": "Spot AI — Spot Connect (beta) Analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Spot AI Developer API\n\nContact Support:\n Name: Spot AI",
+      "type": "text/plain"
+    }
+  }
+}

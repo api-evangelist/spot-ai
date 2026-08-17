@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics Embeds API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Embeds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate an embeddable URL for a live camera feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/embeds/live",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Generates an embeddable URL for a live camera feed that can be used in an iframe.\n\nThis endpoint requires the `camera_share_create` permission on the specified camera."
+        },
+        {
+          "info": {
+            "name": "Generate an embeddable URL for a VOD camera feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/embeds/vod",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Generates an embeddable URL for a VOD (Video on Demand) camera feed\nthat can be used in an iframe.\n\nThis endpoint requires the `clip_share_create` permission on the specified camera."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

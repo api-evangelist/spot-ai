@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Spot AI — Spot Connect (beta) Analytics LPI API",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "LPI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all Licence Plate Interest Lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://dev-api.spot.ai/v1/lpi",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get all Licence Plate Interest Lists"
+        },
+        {
+          "info": {
+            "name": "Create a Licence Plate Interest List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://dev-api.spot.ai/v1/lpi",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a Licence Plate Interest List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
