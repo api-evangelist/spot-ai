@@ -40,6 +40,18 @@ tags:
 - Video
 - Physical Security
 - Surveillance
+- Computer-Vision
+- Artificial Intelligence
+- Camera
+- Analytics
+- License Plate Recognition
+- Webhook
+- Integration
+tags_raw:
+- Company
+- Video
+- Physical Security
+- Surveillance
 - Computer Vision
 - Artificial Intelligence
 - Cameras
@@ -89,6 +101,8 @@ apis:
   humanURL: https://developers.spot.ai/reference/introduction
   baseURL: https://dev-api.spot.ai/
   tags:
+  - Camera
+  tags_raw:
   - Cameras
   properties:
   - type: OpenAPI
@@ -149,6 +163,8 @@ apis:
   humanURL: https://developers.spot.ai/reference/introduction
   baseURL: https://dev-api.spot.ai/
   tags:
+  - Integration
+  tags_raw:
   - Integrations
   properties:
   - type: OpenAPI
