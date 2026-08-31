@@ -113,6 +113,8 @@ apis:
   humanURL: https://developers.spot.ai/reference/introduction
   baseURL: https://dev-api.spot.ai/
   tags:
+  - Camera
+  tags_raw:
   - Cameras
   properties:
   - type: OpenAPI
@@ -174,6 +176,8 @@ apis:
   humanURL: https://developers.spot.ai/reference/introduction
   baseURL: https://dev-api.spot.ai/
   tags:
+  - Integration
+  tags_raw:
   - Integrations
   properties:
   - type: OpenAPI
