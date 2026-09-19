@@ -126,6 +126,8 @@ apis:
   humanURL: https://developers.spot.ai/reference/introduction
   baseURL: https://dev-api.spot.ai/
   tags:
+  - Embed
+  tags_raw:
   - Embeds
   properties:
   - type: OpenAPI
@@ -189,6 +191,8 @@ apis:
   humanURL: https://developers.spot.ai/reference/introduction
   baseURL: https://dev-api.spot.ai/
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
