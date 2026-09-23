@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics Integrations API
+  title: Spot AI — Spot Connect (beta) Integrations API
   version: 1.10.0
   description: Spot AI Developer API
   contact:
@@ -253,22 +253,41 @@ components:
       - details
       type: object
       additionalProperties: false
-    CreateIntegrationInput:
+    UpdateIntegrationInput:
       properties:
         name:
           type: string
-          description: The name of the integration
+          description: The updated name of the integration
           example: My Integration
           minLength: 1
           maxLength: 40
-        integration_type:
-          $ref: '#/components/schemas/IntegrationTypeName'
-          description: 'The type of integration (default: custom)'
-          example: custom
       required:
       - name
       type: object
       additionalProperties: false
+    IntegrationListResult:
+      properties:
+        integrations:
+          items:
+            $ref: '#/components/schemas/Integration'
+          type: array
+      required:
+      - integrations
+      type: object
+      additionalProperties: false
+    IntegrationResult:
+      properties:
+        integration:
+          $ref: '#/components/schemas/Integration'
+      required:
+      - integration
+      type: object
+      additionalProperties: false
+    IntegrationTypeName:
+      enum:
+      - custom
+      - pos
+      type: string
     Integration:
       properties:
         id:
@@ -303,23 +322,6 @@ components:
       - updated
       type: object
       additionalProperties: false
-    IntegrationTypeName:
-      enum:
-      - custom
-      - pos
-      type: string
-    UpdateIntegrationInput:
-      properties:
-        name:
-          type: string
-          description: The updated name of the integration
-          example: My Integration
-          minLength: 1
-          maxLength: 40
-      required:
-      - name
-      type: object
-      additionalProperties: false
     ValidationErrorDetails:
       properties:
         field:
@@ -332,22 +334,20 @@ components:
       - message
       type: object
       additionalProperties: false
-    IntegrationListResult:
+    CreateIntegrationInput:
       properties:
-        integrations:
-          items:
-            $ref: '#/components/schemas/Integration'
-          type: array
+        name:
+          type: string
+          description: The name of the integration
+          example: My Integration
+          minLength: 1
+          maxLength: 40
+        integration_type:
+          $ref: '#/components/schemas/IntegrationTypeName'
+          description: 'The type of integration (default: custom)'
+          example: custom
       required:
-      - integrations
-      type: object
-      additionalProperties: false
-    IntegrationResult:
-      properties:
-        integration:
-          $ref: '#/components/schemas/Integration'
-      required:
-      - integration
+      - name
       type: object
       additionalProperties: false
   securitySchemes:

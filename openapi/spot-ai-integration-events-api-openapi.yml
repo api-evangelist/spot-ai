@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics Integration Events API
+  title: Spot AI — Spot Connect (beta) Integration Events API
   version: 1.10.0
   description: Spot AI Developer API
   contact:
@@ -229,7 +229,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationError'
-      description: "This endpoint creates a new integration event. Required parameters include\ntimestamp and the user-defined schema/metadata (attributes).\n\n**Device Resolution:**\n\nDevice identification follows this precedence order:\n1. `integration_device_id` — if provided, used directly (highest precedence)\n2. `device_external_id` — if provided, looks up or auto-creates a device with that external ID\n3. **Device ID Template** — if configured on the event type, evaluates the template against\n   event attributes to derive an external ID, then looks up or auto-creates the device\n4. **Error** — if none of the above resolve a device, the request fails with 400 Bad Request\n\nThere is no fallback between these options. If you provide an invalid `integration_device_id`,\nthe request fails without trying `device_external_id` or templates.\n\nFor details on configuring Device ID Templates, see the\n[Automatic Device Creation](/reference/device-auto-creation) guide.\n\nThis endpoint should be used for events forwarded through a webhook. For\nbulk upload of events, use the Import Integration Events endpoint."
+      description: 'This endpoint creates a new integration event. Required parameters include
+
+        timestamp and the user-defined schema/metadata (attributes).
+
+
+        **Device Resolution:**
+
+
+        Device identification follows this precedence order:
+
+        1. `integration_device_id` — if provided, used directly (highest precedence)
+
+        2. `device_external_id` — if provided, looks up or auto-creates a device with that external ID
+
+        3. **Device ID Template** — if configured on the event type, evaluates the template against
+
+        event attributes to derive an external ID, then looks up or auto-creates the device
+
+        4. **Error** — if none of the above resolve a device, the request fails with 400 Bad Request
+
+
+        There is no fallback between these options. If you provide an invalid `integration_device_id`,
+
+        the request fails without trying `device_external_id` or templates.
+
+
+        For details on configuring Device ID Templates, see the
+
+        Automatic Device Creation guide.
+
+
+        This endpoint should be used for events forwarded through a webhook. For
+
+        bulk upload of events, use the Import Integration Events endpoint.'
       summary: Ingest Integration Event
       tags:
       - Integration Events
@@ -265,6 +298,84 @@ components:
       - name
       - message
       - details
+      type: object
+      additionalProperties: false
+    IntegrationEventListResult:
+      properties:
+        integration_events:
+          items:
+            $ref: '#/components/schemas/IntegrationEvent'
+          type: array
+      required:
+      - integration_events
+      type: object
+      additionalProperties: false
+    IntegrationEventInput:
+      properties:
+        integration_event_type_id:
+          type: integer
+          format: int32
+          description: The ID of this event's type
+          example: 1
+        integration_device_id:
+          type: integer
+          format: int32
+          description: The ID of the integration device that generated this event
+          example: 1
+        timestamp:
+          type: string
+          format: date-time
+          description: The timestamp of this event
+          example: '2023-06-29T12:20:05.533Z'
+        duration:
+          type: integer
+          format: int64
+          description: The event's duration, in milliseconds
+          maximum: 600000
+        buffer:
+          type: integer
+          format: int64
+          description: The event's buffer, in milliseconds
+          maximum: 120000
+        attributes:
+          additionalProperties: false
+          type: object
+          description: The attributes of this event
+          example:
+            foo: bar
+      required:
+      - integration_event_type_id
+      - integration_device_id
+      - timestamp
+      - attributes
+      type: object
+      additionalProperties: false
+    UpdateIntegrationEventInput:
+      properties:
+        integration_event_type_id:
+          type: integer
+          format: int32
+          description: The ID of this event's type
+          example: 1
+        attributes:
+          additionalProperties: false
+          type: object
+          description: The attributes of this event
+          example:
+            foo: bar
+        duration:
+          type: integer
+          format: int64
+          description: The event's duration, in milliseconds
+          maximum: 600000
+        buffer:
+          type: integer
+          format: int64
+          description: The event's buffer, in milliseconds
+          maximum: 120000
+      required:
+      - integration_event_type_id
+      - attributes
       type: object
       additionalProperties: false
     CreateIntegrationEventsInput:
@@ -340,7 +451,7 @@ components:
       - updated
       type: object
       additionalProperties: false
-    IntegrationEventInput:
+    IntegrationEventIngestionWebhookInput:
       properties:
         integration_event_type_id:
           type: integer
@@ -390,84 +501,6 @@ components:
       required:
       - field
       - message
-      type: object
-      additionalProperties: false
-    IntegrationEventIngestionWebhookInput:
-      properties:
-        integration_event_type_id:
-          type: integer
-          format: int32
-          description: The ID of this event's type
-          example: 1
-        integration_device_id:
-          type: integer
-          format: int32
-          description: The ID of the integration device that generated this event
-          example: 1
-        timestamp:
-          type: string
-          format: date-time
-          description: The timestamp of this event
-          example: '2023-06-29T12:20:05.533Z'
-        duration:
-          type: integer
-          format: int64
-          description: The event's duration, in milliseconds
-          maximum: 600000
-        buffer:
-          type: integer
-          format: int64
-          description: The event's buffer, in milliseconds
-          maximum: 120000
-        attributes:
-          additionalProperties: false
-          type: object
-          description: The attributes of this event
-          example:
-            foo: bar
-      required:
-      - integration_event_type_id
-      - integration_device_id
-      - timestamp
-      - attributes
-      type: object
-      additionalProperties: false
-    UpdateIntegrationEventInput:
-      properties:
-        integration_event_type_id:
-          type: integer
-          format: int32
-          description: The ID of this event's type
-          example: 1
-        attributes:
-          additionalProperties: false
-          type: object
-          description: The attributes of this event
-          example:
-            foo: bar
-        duration:
-          type: integer
-          format: int64
-          description: The event's duration, in milliseconds
-          maximum: 600000
-        buffer:
-          type: integer
-          format: int64
-          description: The event's buffer, in milliseconds
-          maximum: 120000
-      required:
-      - integration_event_type_id
-      - attributes
-      type: object
-      additionalProperties: false
-    IntegrationEventListResult:
-      properties:
-        integration_events:
-          items:
-            $ref: '#/components/schemas/IntegrationEvent'
-          type: array
-      required:
-      - integration_events
       type: object
       additionalProperties: false
   securitySchemes:

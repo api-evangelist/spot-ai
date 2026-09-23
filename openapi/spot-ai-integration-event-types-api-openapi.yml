@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics Integration Event Types API
+  title: Spot AI — Spot Connect (beta) Integration Event Types API
   version: 1.10.0
   description: Spot AI Developer API
   contact:
@@ -420,6 +420,46 @@ components:
       - schema
       type: object
       description: From T, pick a set of properties whose keys are in the union K
+    IntegrationEventTypeResult:
+      properties:
+        integration_event_type:
+          $ref: '#/components/schemas/IntegrationEventType'
+      required:
+      - integration_event_type
+      type: object
+      additionalProperties: false
+    IntegrationEventTypeListResult:
+      properties:
+        prev:
+          type:
+          - string
+          - 'null'
+        next:
+          type:
+          - string
+          - 'null'
+        integration_event_types:
+          items:
+            $ref: '#/components/schemas/IntegrationEventType'
+          type: array
+      required:
+      - prev
+      - next
+      - integration_event_types
+      type: object
+      additionalProperties: false
+    ValidationErrorDetails:
+      properties:
+        field:
+          type: string
+        message:
+          type: string
+        value: {}
+      required:
+      - field
+      - message
+      type: object
+      additionalProperties: false
     IntegrationEventType:
       properties:
         id:
@@ -467,46 +507,6 @@ components:
       - schema
       - created
       - updated
-      type: object
-      additionalProperties: false
-    IntegrationEventTypeResult:
-      properties:
-        integration_event_type:
-          $ref: '#/components/schemas/IntegrationEventType'
-      required:
-      - integration_event_type
-      type: object
-      additionalProperties: false
-    ValidationErrorDetails:
-      properties:
-        field:
-          type: string
-        message:
-          type: string
-        value: {}
-      required:
-      - field
-      - message
-      type: object
-      additionalProperties: false
-    IntegrationEventTypeListResult:
-      properties:
-        prev:
-          type:
-          - string
-          - 'null'
-        next:
-          type:
-          - string
-          - 'null'
-        integration_event_types:
-          items:
-            $ref: '#/components/schemas/IntegrationEventType'
-          type: array
-      required:
-      - prev
-      - next
-      - integration_event_types
       type: object
       additionalProperties: false
   securitySchemes:

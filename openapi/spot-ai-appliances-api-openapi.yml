@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics Appliances API
+  title: Spot AI — Devices Appliances API
   version: 1.10.0
   description: Spot AI Developer API
   contact:
@@ -119,6 +119,31 @@ paths:
             format: int32
 components:
   schemas:
+    GetAppliancesQueryResult:
+      properties:
+        prev:
+          type:
+          - string
+          - 'null'
+        next:
+          type:
+          - string
+          - 'null'
+        appliances:
+          items:
+            $ref: '#/components/schemas/Appliance'
+          type: array
+      required:
+      - prev
+      - next
+      - appliances
+      type: object
+      additionalProperties: false
+    ApplianceStatus:
+      enum:
+      - online
+      - offline
+      type: string
     Appliance:
       properties:
         id:
@@ -168,31 +193,6 @@ components:
       - location_name
       - license_sku
       - firmware_version
-      type: object
-      additionalProperties: false
-    ApplianceStatus:
-      enum:
-      - online
-      - offline
-      type: string
-    GetAppliancesQueryResult:
-      properties:
-        prev:
-          type:
-          - string
-          - 'null'
-        next:
-          type:
-          - string
-          - 'null'
-        appliances:
-          items:
-            $ref: '#/components/schemas/Appliance'
-          type: array
-      required:
-      - prev
-      - next
-      - appliances
       type: object
       additionalProperties: false
     ApiErrorResponse:

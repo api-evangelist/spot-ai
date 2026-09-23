@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics Audio API
+  title: Spot AI — Devices Audio API
   version: 1.10.0
   description: Spot AI Developer API
   contact:

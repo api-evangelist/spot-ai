@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics Zones API
+  title: Spot AI — Devices Zones API
   version: 1.10.0
   description: Spot AI Developer API
   contact:
@@ -55,6 +55,16 @@ paths:
           type: number
 components:
   schemas:
+    GetZonesQueryResult:
+      properties:
+        zones:
+          items:
+            $ref: '#/components/schemas/Zone'
+          type: array
+      required:
+      - zones
+      type: object
+      additionalProperties: false
     Zone:
       properties:
         cameraId:
@@ -80,16 +90,6 @@ components:
       - name
       - id
       type: object
-    GetZonesQueryResult:
-      properties:
-        zones:
-          items:
-            $ref: '#/components/schemas/Zone'
-          type: array
-      required:
-      - zones
-      type: object
-      additionalProperties: false
     ZoneShape:
       items:
         $ref: '#/components/schemas/ZonePoint'

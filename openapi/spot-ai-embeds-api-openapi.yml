@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics Embeds API
+  title: Spot AI — Devices Embeds API
   version: 1.10.0
   description: Spot AI Developer API
   contact:

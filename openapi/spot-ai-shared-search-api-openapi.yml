@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics Shared Search API
+  title: Spot AI — Devices Shared Search API
   version: 1.10.0
   description: Spot AI Developer API
   contact:
@@ -123,27 +123,6 @@ paths:
               $ref: '#/components/schemas/Pick_UpdateSharedCameraSearchInput.Exclude_keyofUpdateSharedCameraSearchInput.token__'
 components:
   schemas:
-    Pick_UpdateSharedCameraSearchInput.Exclude_keyofUpdateSharedCameraSearchInput.token__:
-      properties:
-        start:
-          type: string
-          description: The timestamp for the start of the VOD search view. Should be a valid ISO 8601 string
-          example: '2023-06-29T10:20:05.533Z'
-        end:
-          type: string
-          description: The timestamp for the end of the VOD search view. Should be a valid ISO 8601 string
-          example: '2023-06-29T12:20:05.533Z'
-        expiry_in_seconds:
-          type: integer
-          format: int32
-          description: The expiry time of the created Shared search view
-          example: 86400
-          maximum: 604800
-      required:
-      - start
-      - end
-      type: object
-      description: From T, pick a set of properties whose keys are in the union K
     CreateSharedCameraSearchInput:
       properties:
         expiry_in_seconds:
@@ -177,6 +156,27 @@ components:
       - end
       - start
       type: object
+    Pick_UpdateSharedCameraSearchInput.Exclude_keyofUpdateSharedCameraSearchInput.token__:
+      properties:
+        start:
+          type: string
+          description: The timestamp for the start of the VOD search view. Should be a valid ISO 8601 string
+          example: '2023-06-29T10:20:05.533Z'
+        end:
+          type: string
+          description: The timestamp for the end of the VOD search view. Should be a valid ISO 8601 string
+          example: '2023-06-29T12:20:05.533Z'
+        expiry_in_seconds:
+          type: integer
+          format: int32
+          description: The expiry time of the created Shared search view
+          example: 86400
+          maximum: 604800
+      required:
+      - start
+      - end
+      type: object
+      description: From T, pick a set of properties whose keys are in the union K
     SharedCameraSearch:
       properties:
         expiry:

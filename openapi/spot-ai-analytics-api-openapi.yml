@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics API
+  title: Spot AI — Intelligence Analytics API
   version: 1.10.0
   description: Spot AI Developer API
   contact:
@@ -486,17 +486,27 @@ paths:
           type: number
 components:
   schemas:
-    SegmentResult:
+    IntelligenceEntities:
+      enum:
+      - people
+      - vehicles
+      - forklifts
+      type: string
+    IntelligenceSegment:
       properties:
-        start_ms:
+        length_in_secs:
           type: number
           format: double
-        end_ms:
+        start:
+          type: number
+          format: double
+        end:
           type: number
           format: double
       required:
-      - start_ms
-      - end_ms
+      - length_in_secs
+      - start
+      - end
       type: object
       additionalProperties: false
     ValidationError:
@@ -532,6 +542,28 @@ components:
       - total_count
       type: object
       additionalProperties: false
+    BucketResult:
+      properties:
+        start_time:
+          type: number
+          format: double
+        end_time:
+          type: number
+          format: double
+        presence_sum:
+          type: number
+          format: double
+        events:
+          items:
+            $ref: '#/components/schemas/SegmentResult'
+          type: array
+      required:
+      - start_time
+      - end_time
+      - presence_sum
+      - events
+      type: object
+      additionalProperties: false
     BaseIntelligenceIdleEntity:
       properties:
         object_id:
@@ -560,36 +592,114 @@ components:
       - queue_num
       type: object
       additionalProperties: false
-    IntelligenceCountIdleEntity:
+    SegmentResult:
       properties:
-        object_id:
-          type: string
-        first_ms:
+        start_ms:
           type: number
           format: double
-        last_ms:
+        end_ms:
           type: number
           format: double
-        idle_sum:
-          type: number
-          format: double
-        presence_duration:
-          type: number
-          format: double
-        queue_num:
-          type: number
-          format: double
-        crossed_left:
-          type: boolean
-        crossed_right:
-          type: boolean
       required:
-      - object_id
-      - first_ms
-      - last_ms
-      - idle_sum
-      - presence_duration
-      - queue_num
+      - start_ms
+      - end_ms
+      type: object
+      additionalProperties: false
+    GetCountsQueryResult:
+      properties:
+        total_count:
+          type: number
+          format: double
+        bucket_counts:
+          items:
+            $ref: '#/components/schemas/IntelligenceCountBucketCount'
+          type: array
+        entities:
+          items:
+            $ref: '#/components/schemas/IntelligenceCountIdleEntity'
+          type: array
+      required:
+      - total_count
+      - bucket_counts
+      - entities
+      type: object
+      additionalProperties: false
+    ApiErrorResponse:
+      properties:
+        data: {}
+        statusCode:
+          type: number
+          format: double
+        message:
+          type: string
+        name:
+          type: string
+      required:
+      - message
+      - name
+      type: object
+    BucketSize:
+      enum:
+      - hour
+      - day
+      - week
+      - month
+      type: string
+    GetPresenceQueryResult:
+      properties:
+        duration:
+          type: number
+          format: double
+        duration_present:
+          type: number
+          format: double
+        longest_presence:
+          $ref: '#/components/schemas/IntelligenceSegment'
+        longest_absence:
+          $ref: '#/components/schemas/IntelligenceSegment'
+        buckets:
+          items:
+            $ref: '#/components/schemas/BucketResult'
+          type: array
+      required:
+      - duration
+      - duration_present
+      - buckets
+      type: object
+      additionalProperties: false
+    IntelligenceCountBucketCount:
+      properties:
+        bucket_ms:
+          type: number
+          format: double
+        idle_count:
+          type: number
+          format: double
+        total_count:
+          type: number
+          format: double
+        left_count:
+          type: number
+          format: double
+        right_count:
+          type: number
+          format: double
+      required:
+      - bucket_ms
+      - idle_count
+      - total_count
+      type: object
+      additionalProperties: false
+    ValidationErrorDetails:
+      properties:
+        field:
+          type: string
+        message:
+          type: string
+        value: {}
+      required:
+      - field
+      - message
       type: object
       additionalProperties: false
     GetIdleQueryResult:
@@ -627,148 +737,38 @@ components:
       - idle_count
       type: object
       additionalProperties: false
-    IntelligenceSegment:
+    IntelligenceCountIdleEntity:
       properties:
-        length_in_secs:
-          type: number
-          format: double
-        start:
-          type: number
-          format: double
-        end:
-          type: number
-          format: double
-      required:
-      - length_in_secs
-      - start
-      - end
-      type: object
-      additionalProperties: false
-    GetPresenceQueryResult:
-      properties:
-        duration:
-          type: number
-          format: double
-        duration_present:
-          type: number
-          format: double
-        longest_presence:
-          $ref: '#/components/schemas/IntelligenceSegment'
-        longest_absence:
-          $ref: '#/components/schemas/IntelligenceSegment'
-        buckets:
-          items:
-            $ref: '#/components/schemas/BucketResult'
-          type: array
-      required:
-      - duration
-      - duration_present
-      - buckets
-      type: object
-      additionalProperties: false
-    GetCountsQueryResult:
-      properties:
-        total_count:
-          type: number
-          format: double
-        bucket_counts:
-          items:
-            $ref: '#/components/schemas/IntelligenceCountBucketCount'
-          type: array
-        entities:
-          items:
-            $ref: '#/components/schemas/IntelligenceCountIdleEntity'
-          type: array
-      required:
-      - total_count
-      - bucket_counts
-      - entities
-      type: object
-      additionalProperties: false
-    BucketSize:
-      enum:
-      - hour
-      - day
-      - week
-      - month
-      type: string
-    ApiErrorResponse:
-      properties:
-        data: {}
-        statusCode:
-          type: number
-          format: double
-        message:
+        object_id:
           type: string
-        name:
-          type: string
+        first_ms:
+          type: number
+          format: double
+        last_ms:
+          type: number
+          format: double
+        idle_sum:
+          type: number
+          format: double
+        presence_duration:
+          type: number
+          format: double
+        queue_num:
+          type: number
+          format: double
+        crossed_left:
+          type: boolean
+        crossed_right:
+          type: boolean
       required:
-      - message
-      - name
-      type: object
-    IntelligenceCountBucketCount:
-      properties:
-        bucket_ms:
-          type: number
-          format: double
-        idle_count:
-          type: number
-          format: double
-        total_count:
-          type: number
-          format: double
-        left_count:
-          type: number
-          format: double
-        right_count:
-          type: number
-          format: double
-      required:
-      - bucket_ms
-      - idle_count
-      - total_count
-      type: object
-      additionalProperties: false
-    BucketResult:
-      properties:
-        start_time:
-          type: number
-          format: double
-        end_time:
-          type: number
-          format: double
-        presence_sum:
-          type: number
-          format: double
-        events:
-          items:
-            $ref: '#/components/schemas/SegmentResult'
-          type: array
-      required:
-      - start_time
-      - end_time
-      - presence_sum
-      - events
+      - object_id
+      - first_ms
+      - last_ms
+      - idle_sum
+      - presence_duration
+      - queue_num
       type: object
       additionalProperties: false
-    ValidationErrorDetails:
-      properties:
-        field:
-          type: string
-        message:
-          type: string
-        value: {}
-      required:
-      - field
-      - message
-      type: object
-      additionalProperties: false
-    IntelligenceEntities:
-      enum:
-      - people
-      - vehicles
-      - forklifts
-      type: string
   securitySchemes:
     bearer_security:
       type: http

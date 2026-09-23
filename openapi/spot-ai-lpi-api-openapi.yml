@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics LPI API
+  title: Spot AI — Intelligence LPI API
   version: 1.10.0
   description: Spot AI Developer API
   contact:
@@ -30,7 +30,6 @@ paths:
                     items:
                     - name: ABC123
                       notes: Most common plate
-      description: Create a Licence Plate Interest List
       summary: Create a Licence Plate Interest List
       tags:
       - LPI
@@ -73,7 +72,6 @@ paths:
                       notes: Third most common plate
                     - name: JKL012
                       notes: Fourth most common plate
-      description: Get all Licence Plate Interest Lists
       summary: Get all Licence Plate Interest Lists
       tags:
       - LPI
@@ -82,6 +80,18 @@ paths:
       parameters: []
 components:
   schemas:
+    Item:
+      properties:
+        name:
+          type: string
+        notes:
+          type: string
+        source:
+          type: string
+      required:
+      - name
+      type: object
+      additionalProperties: false
     Pick_InterestList.Exclude_keyofInterestList.id-or-type__:
       properties:
         name:
@@ -95,18 +105,6 @@ components:
       - items
       type: object
       description: From T, pick a set of properties whose keys are in the union K
-    Item:
-      properties:
-        name:
-          type: string
-        notes:
-          type: string
-        source:
-          type: string
-      required:
-      - name
-      type: object
-      additionalProperties: false
     InterestList:
       properties:
         id:

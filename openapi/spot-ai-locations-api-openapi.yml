@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics Locations API
+  title: Spot AI — Devices Locations API
   version: 1.10.0
   description: Spot AI Developer API
   contact:
@@ -78,36 +78,6 @@ paths:
           type: integer
 components:
   schemas:
-    Location:
-      properties:
-        id:
-          type: number
-          format: double
-        name:
-          type: string
-          description: Name of the location
-          example: My Location
-      required:
-      - id
-      - name
-      type: object
-      additionalProperties: false
-    ValidationError:
-      properties:
-        name:
-          type: string
-        message:
-          type: string
-        details:
-          items:
-            $ref: '#/components/schemas/ValidationErrorDetails'
-          type: array
-      required:
-      - name
-      - message
-      - details
-      type: object
-      additionalProperties: false
     LocationListResult:
       properties:
         prev:
@@ -126,6 +96,36 @@ components:
       - prev
       - next
       - locations
+      type: object
+      additionalProperties: false
+    ValidationError:
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        details:
+          items:
+            $ref: '#/components/schemas/ValidationErrorDetails'
+          type: array
+      required:
+      - name
+      - message
+      - details
+      type: object
+      additionalProperties: false
+    Location:
+      properties:
+        id:
+          type: number
+          format: double
+        name:
+          type: string
+          description: Name of the location
+          example: My Location
+      required:
+      - id
+      - name
       type: object
       additionalProperties: false
     ValidationErrorDetails:

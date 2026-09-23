@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics Historical Footage API
+  title: Spot AI — Devices Historical Footage API
   version: 1.10.0
   description: Spot AI Developer API
   contact:
@@ -214,6 +214,15 @@ paths:
           type: number
 components:
   schemas:
+    historicalFootageState:
+      description: Not deprecating enums from kysely because they are used all over the place
+      enum:
+      - FAILED
+      - PROCESSING
+      - QUEUED
+      - STALLED
+      - SUCCEEDED
+      type: string
     CreateHistoricalFootageInput:
       properties:
         start:
@@ -229,6 +238,20 @@ components:
       - end
       type: object
       additionalProperties: false
+    ApiErrorResponse:
+      properties:
+        data: {}
+        statusCode:
+          type: number
+          format: double
+        message:
+          type: string
+        name:
+          type: string
+      required:
+      - message
+      - name
+      type: object
     GetHistoricalFootage:
       properties:
         id:
@@ -285,29 +308,6 @@ components:
           format: double
       type: object
       additionalProperties: false
-    ApiErrorResponse:
-      properties:
-        data: {}
-        statusCode:
-          type: number
-          format: double
-        message:
-          type: string
-        name:
-          type: string
-      required:
-      - message
-      - name
-      type: object
-    historicalFootageState:
-      description: Not deprecating enums from kysely because they are used all over the place
-      enum:
-      - FAILED
-      - PROCESSING
-      - QUEUED
-      - STALLED
-      - SUCCEEDED
-      type: string
   securitySchemes:
     bearer_security:
       type: http

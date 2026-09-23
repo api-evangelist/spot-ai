@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics Cameras API
+  title: Spot AI — Devices Cameras API
   version: 1.10.0
   description: Spot AI Developer API
   contact:
@@ -508,26 +508,69 @@ paths:
               $ref: '#/components/schemas/Pick_UpdateSharedCameraSearchInput.Exclude_keyofUpdateSharedCameraSearchInput.token__'
 components:
   schemas:
-    GetCamerasForApiQueryResult:
+    historicalFootageState:
+      description: Not deprecating enums from kysely because they are used all over the place
+      enum:
+      - FAILED
+      - PROCESSING
+      - QUEUED
+      - STALLED
+      - SUCCEEDED
+      type: string
+    Pick_UpdateSharedCameraSearchInput.Exclude_keyofUpdateSharedCameraSearchInput.token__:
       properties:
-        prev:
-          type:
-          - string
-          - 'null'
-        next:
-          type:
-          - string
-          - 'null'
-        cameras:
-          items:
-            $ref: '#/components/schemas/Camera'
-          type: array
+        start:
+          type: string
+          description: The timestamp for the start of the VOD search view. Should be a valid ISO 8601 string
+          example: '2023-06-29T10:20:05.533Z'
+        end:
+          type: string
+          description: The timestamp for the end of the VOD search view. Should be a valid ISO 8601 string
+          example: '2023-06-29T12:20:05.533Z'
+        expiry_in_seconds:
+          type: integer
+          format: int32
+          description: The expiry time of the created Shared search view
+          example: 86400
+          maximum: 604800
       required:
-      - prev
-      - next
-      - cameras
+      - start
+      - end
       type: object
-      additionalProperties: false
+      description: From T, pick a set of properties whose keys are in the union K
+    CreateSharedCameraSearchInput:
+      properties:
+        expiry_in_seconds:
+          type: integer
+          format: int32
+          description: The expiry time of the created Shared search view
+          example: 86400
+          maximum: 604800
+        camera_ids:
+          items:
+            type: number
+            format: double
+          type: array
+          description: The list of cameras to be shown in the VOD view.
+          example:
+          - 1
+          - 2
+          - 3
+          minItems: 1
+          maxItems: 16
+        end:
+          type: string
+          description: The timestamp for the end of the VOD search view. Should be a valid ISO 8601 string
+          example: '2023-06-29T12:20:05.533Z'
+        start:
+          type: string
+          description: The timestamp for the start of the VOD search view. Should be a valid ISO 8601 string
+          example: '2023-06-29T10:20:05.533Z'
+      required:
+      - camera_ids
+      - end
+      - start
+      type: object
     CreateHistoricalFootageInput:
       properties:
         start:
@@ -543,11 +586,20 @@ components:
       - end
       type: object
       additionalProperties: false
-    CameraStatus:
-      enum:
-      - offline
-      - online
-      type: string
+    ApiErrorResponse:
+      properties:
+        data: {}
+        statusCode:
+          type: number
+          format: double
+        message:
+          type: string
+        name:
+          type: string
+      required:
+      - message
+      - name
+      type: object
     GetLiveUrlInput:
       properties:
         camera_ids:
@@ -565,6 +617,111 @@ components:
           maxItems: 4
       required:
       - camera_ids
+      type: object
+      additionalProperties: false
+    GetHistoricalFootage:
+      properties:
+        id:
+          type: number
+          format: double
+        createdAt:
+          type: string
+          format: date-time
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        cameraId:
+          type: number
+          format: double
+        expiry:
+          type: string
+          format: date-time
+        objectPath:
+          type: string
+        progress:
+          type: number
+          format: double
+        state:
+          $ref: '#/components/schemas/historicalFootageState'
+        stateDescription:
+          type: string
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+      - id
+      - createdAt
+      - start
+      - end
+      - cameraId
+      - expiry
+      - objectPath
+      - progress
+      - state
+      - stateDescription
+      - updatedAt
+      type: object
+      additionalProperties: false
+    SharedCameraSearch:
+      properties:
+        expiry:
+          type: string
+          format: date-time
+          description: The timestamp after which the link will expire
+          example: '2023-06-29T12:20:05.533Z'
+        camera_ids:
+          items:
+            type: number
+            format: double
+          type: array
+          description: The list of cameras that are shown in the VOD view.
+          example:
+          - 1
+          - 2
+          - 3
+        end:
+          type: string
+          format: date-time
+          description: The timestamp for the end of the VOD search view
+          example: '2023-06-29T12:20:05.533Z'
+        start:
+          type: string
+          format: date-time
+          description: The timestamp for the start of the VOD search view
+          example: '2023-06-29T12:20:05.533Z'
+        link:
+          type: string
+          description: This is the link to the public page to view the share search VODs
+        token:
+          type: string
+          description: The token for the shared search
+      required:
+      - expiry
+      - camera_ids
+      - end
+      - start
+      - link
+      - token
+      type: object
+    CreateHistoricalFootageOutput:
+      properties:
+        id:
+          type: number
+          format: double
+        redirectId:
+          type: number
+          format: double
+      type: object
+      additionalProperties: false
+    GetLiveUrlQueryResult:
+      properties:
+        url:
+          type: string
+      required:
+      - url
       type: object
       additionalProperties: false
     Camera:
@@ -617,188 +774,31 @@ components:
       - has_speakers
       type: object
       additionalProperties: false
-    GetHistoricalFootage:
-      properties:
-        id:
-          type: number
-          format: double
-        createdAt:
-          type: string
-          format: date-time
-        start:
-          type: string
-          format: date-time
-        end:
-          type: string
-          format: date-time
-        cameraId:
-          type: number
-          format: double
-        expiry:
-          type: string
-          format: date-time
-        objectPath:
-          type: string
-        progress:
-          type: number
-          format: double
-        state:
-          $ref: '#/components/schemas/historicalFootageState'
-        stateDescription:
-          type: string
-        updatedAt:
-          type: string
-          format: date-time
-      required:
-      - id
-      - createdAt
-      - start
-      - end
-      - cameraId
-      - expiry
-      - objectPath
-      - progress
-      - state
-      - stateDescription
-      - updatedAt
-      type: object
-      additionalProperties: false
-    CreateHistoricalFootageOutput:
-      properties:
-        id:
-          type: number
-          format: double
-        redirectId:
-          type: number
-          format: double
-      type: object
-      additionalProperties: false
-    ApiErrorResponse:
-      properties:
-        data: {}
-        statusCode:
-          type: number
-          format: double
-        message:
-          type: string
-        name:
-          type: string
-      required:
-      - message
-      - name
-      type: object
-    Pick_UpdateSharedCameraSearchInput.Exclude_keyofUpdateSharedCameraSearchInput.token__:
-      properties:
-        start:
-          type: string
-          description: The timestamp for the start of the VOD search view. Should be a valid ISO 8601 string
-          example: '2023-06-29T10:20:05.533Z'
-        end:
-          type: string
-          description: The timestamp for the end of the VOD search view. Should be a valid ISO 8601 string
-          example: '2023-06-29T12:20:05.533Z'
-        expiry_in_seconds:
-          type: integer
-          format: int32
-          description: The expiry time of the created Shared search view
-          example: 86400
-          maximum: 604800
-      required:
-      - start
-      - end
-      type: object
-      description: From T, pick a set of properties whose keys are in the union K
-    GetLiveUrlQueryResult:
-      properties:
-        url:
-          type: string
-      required:
-      - url
-      type: object
-      additionalProperties: false
-    historicalFootageState:
-      description: Not deprecating enums from kysely because they are used all over the place
+    CameraStatus:
       enum:
-      - FAILED
-      - PROCESSING
-      - QUEUED
-      - STALLED
-      - SUCCEEDED
+      - offline
+      - online
       type: string
-    CreateSharedCameraSearchInput:
+    GetCamerasForApiQueryResult:
       properties:
-        expiry_in_seconds:
-          type: integer
-          format: int32
-          description: The expiry time of the created Shared search view
-          example: 86400
-          maximum: 604800
-        camera_ids:
+        prev:
+          type:
+          - string
+          - 'null'
+        next:
+          type:
+          - string
+          - 'null'
+        cameras:
           items:
-            type: number
-            format: double
+            $ref: '#/components/schemas/Camera'
           type: array
-          description: The list of cameras to be shown in the VOD view.
-          example:
-          - 1
-          - 2
-          - 3
-          minItems: 1
-          maxItems: 16
-        end:
-          type: string
-          description: The timestamp for the end of the VOD search view. Should be a valid ISO 8601 string
-          example: '2023-06-29T12:20:05.533Z'
-        start:
-          type: string
-          description: The timestamp for the start of the VOD search view. Should be a valid ISO 8601 string
-          example: '2023-06-29T10:20:05.533Z'
       required:
-      - camera_ids
-      - end
-      - start
+      - prev
+      - next
+      - cameras
       type: object
-    SharedCameraSearch:
-      properties:
-        expiry:
-          type: string
-          format: date-time
-          description: The timestamp after which the link will expire
-          example: '2023-06-29T12:20:05.533Z'
-        camera_ids:
-          items:
-            type: number
-            format: double
-          type: array
-          description: The list of cameras that are shown in the VOD view.
-          example:
-          - 1
-          - 2
-          - 3
-        end:
-          type: string
-          format: date-time
-          description: The timestamp for the end of the VOD search view
-          example: '2023-06-29T12:20:05.533Z'
-        start:
-          type: string
-          format: date-time
-          description: The timestamp for the start of the VOD search view
-          example: '2023-06-29T12:20:05.533Z'
-        link:
-          type: string
-          description: This is the link to the public page to view the share search VODs
-        token:
-          type: string
-          description: The token for the shared search
-      required:
-      - expiry
-      - camera_ids
-      - end
-      - start
-      - link
-      - token
-      type: object
+      additionalProperties: false
   securitySchemes:
     bearer_security:
       type: http

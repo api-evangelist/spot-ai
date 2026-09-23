@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Spot AI — Spot Connect (beta) Analytics LPR API
+  title: Spot AI — Intelligence LPR API
   version: 1.10.0
   description: Spot AI Developer API
   contact:
@@ -107,34 +107,6 @@ paths:
             type: string
 components:
   schemas:
-    LprReport:
-      properties:
-        timeseries:
-          items:
-            $ref: '#/components/schemas/LprReportTimeseries'
-          type: array
-        summary:
-          $ref: '#/components/schemas/LprReportSummary'
-        plates:
-          items:
-            $ref: '#/components/schemas/LprReportPlate'
-          type: array
-      required:
-      - timeseries
-      - summary
-      - plates
-      type: object
-    LprReportTimeseries:
-      properties:
-        visits:
-          type: number
-          format: double
-        date:
-          type: string
-      required:
-      - visits
-      - date
-      type: object
     LprReportPlate:
       properties:
         visits:
@@ -155,6 +127,37 @@ components:
       - first_seen
       - plate
       type: object
+    ApiErrorResponse:
+      properties:
+        data: {}
+        statusCode:
+          type: number
+          format: double
+        message:
+          type: string
+        name:
+          type: string
+      required:
+      - message
+      - name
+      type: object
+    LprReport:
+      properties:
+        timeseries:
+          items:
+            $ref: '#/components/schemas/LprReportTimeseries'
+          type: array
+        summary:
+          $ref: '#/components/schemas/LprReportSummary'
+        plates:
+          items:
+            $ref: '#/components/schemas/LprReportPlate'
+          type: array
+      required:
+      - timeseries
+      - summary
+      - plates
+      type: object
     LprReportSummary:
       properties:
         most_visits_by_plate:
@@ -171,19 +174,16 @@ components:
       - total_visits
       - unique_plates
       type: object
-    ApiErrorResponse:
+    LprReportTimeseries:
       properties:
-        data: {}
-        statusCode:
+        visits:
           type: number
           format: double
-        message:
-          type: string
-        name:
+        date:
           type: string
       required:
-      - message
-      - name
+      - visits
+      - date
       type: object
   securitySchemes:
     bearer_security:
