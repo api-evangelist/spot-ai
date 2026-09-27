@@ -284,28 +284,26 @@ paths:
               $ref: '#/components/schemas/IntegrationEventIngestionWebhookInput'
 components:
   schemas:
-    ValidationError:
+    ValidationErrorDetails:
       properties:
-        name:
+        field:
           type: string
         message:
           type: string
-        details:
-          items:
-            $ref: '#/components/schemas/ValidationErrorDetails'
-          type: array
+        value: {}
       required:
-      - name
+      - field
       - message
-      - details
       type: object
       additionalProperties: false
-    IntegrationEventListResult:
+    CreateIntegrationEventsInput:
       properties:
         integration_events:
           items:
-            $ref: '#/components/schemas/IntegrationEvent'
+            $ref: '#/components/schemas/IntegrationEventInput'
           type: array
+          description: The integration events to create
+          minItems: 1
       required:
       - integration_events
       type: object
@@ -350,6 +348,72 @@ components:
       - attributes
       type: object
       additionalProperties: false
+    ValidationError:
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        details:
+          items:
+            $ref: '#/components/schemas/ValidationErrorDetails'
+          type: array
+      required:
+      - name
+      - message
+      - details
+      type: object
+      additionalProperties: false
+    IntegrationEventIngestionWebhookInput:
+      properties:
+        integration_event_type_id:
+          type: integer
+          format: int32
+          description: The ID of this event's type
+          example: 1
+        integration_device_id:
+          type: integer
+          format: int32
+          description: The ID of the integration device that generated this event
+          example: 1
+        timestamp:
+          type: string
+          format: date-time
+          description: The timestamp of this event
+          example: '2023-06-29T12:20:05.533Z'
+        duration:
+          type: integer
+          format: int64
+          description: The event's duration, in milliseconds
+          maximum: 600000
+        buffer:
+          type: integer
+          format: int64
+          description: The event's buffer, in milliseconds
+          maximum: 120000
+        attributes:
+          additionalProperties: false
+          type: object
+          description: The attributes of this event
+          example:
+            foo: bar
+      required:
+      - integration_event_type_id
+      - integration_device_id
+      - timestamp
+      - attributes
+      type: object
+      additionalProperties: false
+    IntegrationEventListResult:
+      properties:
+        integration_events:
+          items:
+            $ref: '#/components/schemas/IntegrationEvent'
+          type: array
+      required:
+      - integration_events
+      type: object
+      additionalProperties: false
     UpdateIntegrationEventInput:
       properties:
         integration_event_type_id:
@@ -376,18 +440,6 @@ components:
       required:
       - integration_event_type_id
       - attributes
-      type: object
-      additionalProperties: false
-    CreateIntegrationEventsInput:
-      properties:
-        integration_events:
-          items:
-            $ref: '#/components/schemas/IntegrationEventInput'
-          type: array
-          description: The integration events to create
-          minItems: 1
-      required:
-      - integration_events
       type: object
       additionalProperties: false
     IntegrationEvent:
@@ -449,58 +501,6 @@ components:
       - attributes
       - created
       - updated
-      type: object
-      additionalProperties: false
-    IntegrationEventIngestionWebhookInput:
-      properties:
-        integration_event_type_id:
-          type: integer
-          format: int32
-          description: The ID of this event's type
-          example: 1
-        integration_device_id:
-          type: integer
-          format: int32
-          description: The ID of the integration device that generated this event
-          example: 1
-        timestamp:
-          type: string
-          format: date-time
-          description: The timestamp of this event
-          example: '2023-06-29T12:20:05.533Z'
-        duration:
-          type: integer
-          format: int64
-          description: The event's duration, in milliseconds
-          maximum: 600000
-        buffer:
-          type: integer
-          format: int64
-          description: The event's buffer, in milliseconds
-          maximum: 120000
-        attributes:
-          additionalProperties: false
-          type: object
-          description: The attributes of this event
-          example:
-            foo: bar
-      required:
-      - integration_event_type_id
-      - integration_device_id
-      - timestamp
-      - attributes
-      type: object
-      additionalProperties: false
-    ValidationErrorDetails:
-      properties:
-        field:
-          type: string
-        message:
-          type: string
-        value: {}
-      required:
-      - field
-      - message
       type: object
       additionalProperties: false
   securitySchemes:

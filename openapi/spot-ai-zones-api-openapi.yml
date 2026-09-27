@@ -65,6 +65,10 @@ components:
       - zones
       type: object
       additionalProperties: false
+    ZoneShape:
+      items:
+        $ref: '#/components/schemas/ZonePoint'
+      type: array
     Zone:
       properties:
         cameraId:
@@ -90,10 +94,6 @@ components:
       - name
       - id
       type: object
-    ZoneShape:
-      items:
-        $ref: '#/components/schemas/ZonePoint'
-      type: array
     ZonePoint:
       properties:
         y:

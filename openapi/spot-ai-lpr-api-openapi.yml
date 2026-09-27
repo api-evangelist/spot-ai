@@ -107,6 +107,31 @@ paths:
             type: string
 components:
   schemas:
+    ApiErrorResponse:
+      properties:
+        data: {}
+        statusCode:
+          type: number
+          format: double
+        message:
+          type: string
+        name:
+          type: string
+      required:
+      - message
+      - name
+      type: object
+    LprReportTimeseries:
+      properties:
+        visits:
+          type: number
+          format: double
+        date:
+          type: string
+      required:
+      - visits
+      - date
+      type: object
     LprReportPlate:
       properties:
         visits:
@@ -127,19 +152,21 @@ components:
       - first_seen
       - plate
       type: object
-    ApiErrorResponse:
+    LprReportSummary:
       properties:
-        data: {}
-        statusCode:
+        most_visits_by_plate:
           type: number
           format: double
-        message:
-          type: string
-        name:
-          type: string
+        total_visits:
+          type: number
+          format: double
+        unique_plates:
+          type: number
+          format: double
       required:
-      - message
-      - name
+      - most_visits_by_plate
+      - total_visits
+      - unique_plates
       type: object
     LprReport:
       properties:
@@ -157,33 +184,6 @@ components:
       - timeseries
       - summary
       - plates
-      type: object
-    LprReportSummary:
-      properties:
-        most_visits_by_plate:
-          type: number
-          format: double
-        total_visits:
-          type: number
-          format: double
-        unique_plates:
-          type: number
-          format: double
-      required:
-      - most_visits_by_plate
-      - total_visits
-      - unique_plates
-      type: object
-    LprReportTimeseries:
-      properties:
-        visits:
-          type: number
-          format: double
-        date:
-          type: string
-      required:
-      - visits
-      - date
       type: object
   securitySchemes:
     bearer_security:

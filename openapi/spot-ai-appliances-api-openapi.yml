@@ -119,31 +119,6 @@ paths:
             format: int32
 components:
   schemas:
-    GetAppliancesQueryResult:
-      properties:
-        prev:
-          type:
-          - string
-          - 'null'
-        next:
-          type:
-          - string
-          - 'null'
-        appliances:
-          items:
-            $ref: '#/components/schemas/Appliance'
-          type: array
-      required:
-      - prev
-      - next
-      - appliances
-      type: object
-      additionalProperties: false
-    ApplianceStatus:
-      enum:
-      - online
-      - offline
-      type: string
     Appliance:
       properties:
         id:
@@ -195,6 +170,26 @@ components:
       - firmware_version
       type: object
       additionalProperties: false
+    GetAppliancesQueryResult:
+      properties:
+        prev:
+          type:
+          - string
+          - 'null'
+        next:
+          type:
+          - string
+          - 'null'
+        appliances:
+          items:
+            $ref: '#/components/schemas/Appliance'
+          type: array
+      required:
+      - prev
+      - next
+      - appliances
+      type: object
+      additionalProperties: false
     ApiErrorResponse:
       properties:
         data: {}
@@ -209,6 +204,11 @@ components:
       - message
       - name
       type: object
+    ApplianceStatus:
+      enum:
+      - online
+      - offline
+      type: string
   securitySchemes:
     bearer_security:
       type: http

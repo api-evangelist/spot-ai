@@ -78,24 +78,18 @@ paths:
           type: integer
 components:
   schemas:
-    LocationListResult:
+    Location:
       properties:
-        prev:
-          type:
-          - string
-          - 'null'
-        next:
-          type:
-          - string
-          - 'null'
-        locations:
-          items:
-            $ref: '#/components/schemas/Location'
-          type: array
+        id:
+          type: number
+          format: double
+        name:
+          type: string
+          description: Name of the location
+          example: My Location
       required:
-      - prev
-      - next
-      - locations
+      - id
+      - name
       type: object
       additionalProperties: false
     ValidationError:
@@ -114,18 +108,24 @@ components:
       - details
       type: object
       additionalProperties: false
-    Location:
+    LocationListResult:
       properties:
-        id:
-          type: number
-          format: double
-        name:
-          type: string
-          description: Name of the location
-          example: My Location
+        prev:
+          type:
+          - string
+          - 'null'
+        next:
+          type:
+          - string
+          - 'null'
+        locations:
+          items:
+            $ref: '#/components/schemas/Location'
+          type: array
       required:
-      - id
-      - name
+      - prev
+      - next
+      - locations
       type: object
       additionalProperties: false
     ValidationErrorDetails:

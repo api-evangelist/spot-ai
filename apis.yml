@@ -53,7 +53,7 @@ tags:
 - Video
 - Physical Security
 - Surveillance
-- Computer-Vision
+- Computer Vision
 - Artificial Intelligence
 - Camera
 - Analytics
@@ -72,6 +72,7 @@ tags_raw:
 - License Plate Recognition
 - Webhooks
 - Integrations
+- Computer-Vision
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -80,31 +80,6 @@ paths:
       parameters: []
 components:
   schemas:
-    Item:
-      properties:
-        name:
-          type: string
-        notes:
-          type: string
-        source:
-          type: string
-      required:
-      - name
-      type: object
-      additionalProperties: false
-    Pick_InterestList.Exclude_keyofInterestList.id-or-type__:
-      properties:
-        name:
-          type: string
-        items:
-          items:
-            $ref: '#/components/schemas/Item'
-          type: array
-      required:
-      - name
-      - items
-      type: object
-      description: From T, pick a set of properties whose keys are in the union K
     InterestList:
       properties:
         id:
@@ -123,6 +98,31 @@ components:
       - type
       - name
       - items
+      type: object
+      additionalProperties: false
+    Pick_InterestList.Exclude_keyofInterestList.id-or-type__:
+      properties:
+        name:
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/Item'
+          type: array
+      required:
+      - name
+      - items
+      type: object
+      description: From T, pick a set of properties whose keys are in the union K
+    Item:
+      properties:
+        name:
+          type: string
+        notes:
+          type: string
+        source:
+          type: string
+      required:
+      - name
       type: object
       additionalProperties: false
   securitySchemes:
