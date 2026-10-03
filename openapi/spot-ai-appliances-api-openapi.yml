@@ -119,6 +119,25 @@ paths:
             format: int32
 components:
   schemas:
+    ApiErrorResponse:
+      properties:
+        data: {}
+        statusCode:
+          type: number
+          format: double
+        message:
+          type: string
+        name:
+          type: string
+      required:
+      - message
+      - name
+      type: object
+    ApplianceStatus:
+      enum:
+      - online
+      - offline
+      type: string
     Appliance:
       properties:
         id:
@@ -190,25 +209,6 @@ components:
       - appliances
       type: object
       additionalProperties: false
-    ApiErrorResponse:
-      properties:
-        data: {}
-        statusCode:
-          type: number
-          format: double
-        message:
-          type: string
-        name:
-          type: string
-      required:
-      - message
-      - name
-      type: object
-    ApplianceStatus:
-      enum:
-      - online
-      - offline
-      type: string
   securitySchemes:
     bearer_security:
       type: http

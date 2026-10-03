@@ -412,6 +412,34 @@ paths:
               description: '- JSON object containing the updated integration device camera ids'
 components:
   schemas:
+    ValidationError:
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        details:
+          items:
+            $ref: '#/components/schemas/ValidationErrorDetails'
+          type: array
+      required:
+      - name
+      - message
+      - details
+      type: object
+      additionalProperties: false
+    ValidationErrorDetails:
+      properties:
+        field:
+          type: string
+        message:
+          type: string
+        value: {}
+      required:
+      - field
+      - message
+      type: object
+      additionalProperties: false
     IntegrationDeviceListResult:
       properties:
         prev:
@@ -430,95 +458,6 @@ components:
       - prev
       - next
       - integration_devices
-      type: object
-      additionalProperties: false
-    ValidationErrorDetails:
-      properties:
-        field:
-          type: string
-        message:
-          type: string
-        value: {}
-      required:
-      - field
-      - message
-      type: object
-      additionalProperties: false
-    Partial_Pick_IntegrationDevice.tags__:
-      properties:
-        tags:
-          items:
-            type: string
-          type: array
-          description: The tags associated with this integration device
-          example:
-          - Tag1
-          - Tag2
-      type: object
-      description: Make all properties in T optional
-    Pick_IntegrationDevice.name-or-camera_ids_:
-      properties:
-        name:
-          type: string
-          description: The name of the integration device
-          example: My Integration Device
-          minLength: 1
-          maxLength: 40
-        camera_ids:
-          items:
-            type: integer
-            format: int32
-          type: array
-          description: The IDs of the cameras linked to this integration device
-          example:
-          - 1
-          - 2
-          - 3
-          maxItems: 4
-      required:
-      - name
-      - camera_ids
-      type: object
-      description: From T, pick a set of properties whose keys are in the union K
-    Pick_IntegrationDevice.camera_ids_:
-      properties:
-        camera_ids:
-          items:
-            type: integer
-            format: int32
-          type: array
-          description: The IDs of the cameras linked to this integration device
-          example:
-          - 1
-          - 2
-          - 3
-          maxItems: 4
-      required:
-      - camera_ids
-      type: object
-      description: From T, pick a set of properties whose keys are in the union K
-    IntegrationDeviceResult:
-      properties:
-        integration_device:
-          $ref: '#/components/schemas/IntegrationDevice'
-      required:
-      - integration_device
-      type: object
-      additionalProperties: false
-    ValidationError:
-      properties:
-        name:
-          type: string
-        message:
-          type: string
-        details:
-          items:
-            $ref: '#/components/schemas/ValidationErrorDetails'
-          type: array
-      required:
-      - name
-      - message
-      - details
       type: object
       additionalProperties: false
     IntegrationDevice:
@@ -576,6 +515,50 @@ components:
       - updated
       type: object
       additionalProperties: false
+    IntegrationDeviceResult:
+      properties:
+        integration_device:
+          $ref: '#/components/schemas/IntegrationDevice'
+      required:
+      - integration_device
+      type: object
+      additionalProperties: false
+    Partial_Pick_IntegrationDevice.tags__:
+      properties:
+        tags:
+          items:
+            type: string
+          type: array
+          description: The tags associated with this integration device
+          example:
+          - Tag1
+          - Tag2
+      type: object
+      description: Make all properties in T optional
+    Pick_IntegrationDevice.name-or-camera_ids_:
+      properties:
+        name:
+          type: string
+          description: The name of the integration device
+          example: My Integration Device
+          minLength: 1
+          maxLength: 40
+        camera_ids:
+          items:
+            type: integer
+            format: int32
+          type: array
+          description: The IDs of the cameras linked to this integration device
+          example:
+          - 1
+          - 2
+          - 3
+          maxItems: 4
+      required:
+      - name
+      - camera_ids
+      type: object
+      description: From T, pick a set of properties whose keys are in the union K
     Partial_Pick_IntegrationDevice.tags-or-name__:
       properties:
         name:
@@ -598,6 +581,23 @@ components:
       allOf:
       - $ref: '#/components/schemas/Pick_IntegrationDevice.name-or-camera_ids_'
       - $ref: '#/components/schemas/Partial_Pick_IntegrationDevice.tags__'
+    Pick_IntegrationDevice.camera_ids_:
+      properties:
+        camera_ids:
+          items:
+            type: integer
+            format: int32
+          type: array
+          description: The IDs of the cameras linked to this integration device
+          example:
+          - 1
+          - 2
+          - 3
+          maxItems: 4
+      required:
+      - camera_ids
+      type: object
+      description: From T, pick a set of properties whose keys are in the union K
   securitySchemes:
     bearer_security:
       type: http

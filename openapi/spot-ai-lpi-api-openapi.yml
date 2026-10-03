@@ -80,26 +80,6 @@ paths:
       parameters: []
 components:
   schemas:
-    InterestList:
-      properties:
-        id:
-          type: number
-          format: double
-        type:
-          type: string
-        name:
-          type: string
-        items:
-          items:
-            $ref: '#/components/schemas/Item'
-          type: array
-      required:
-      - id
-      - type
-      - name
-      - items
-      type: object
-      additionalProperties: false
     Pick_InterestList.Exclude_keyofInterestList.id-or-type__:
       properties:
         name:
@@ -123,6 +103,26 @@ components:
           type: string
       required:
       - name
+      type: object
+      additionalProperties: false
+    InterestList:
+      properties:
+        id:
+          type: number
+          format: double
+        type:
+          type: string
+        name:
+          type: string
+        items:
+          items:
+            $ref: '#/components/schemas/Item'
+          type: array
+      required:
+      - id
+      - type
+      - name
+      - items
       type: object
       additionalProperties: false
   securitySchemes:

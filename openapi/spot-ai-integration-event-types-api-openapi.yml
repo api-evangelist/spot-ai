@@ -335,26 +335,6 @@ paths:
               description: '- JSON object containing the updated integration event type information'
 components:
   schemas:
-    IntegrationEventTypeResult:
-      properties:
-        integration_event_type:
-          $ref: '#/components/schemas/IntegrationEventType'
-      required:
-      - integration_event_type
-      type: object
-      additionalProperties: false
-    ValidationErrorDetails:
-      properties:
-        field:
-          type: string
-        message:
-          type: string
-        value: {}
-      required:
-      - field
-      - message
-      type: object
-      additionalProperties: false
     ValidationError:
       properties:
         name:
@@ -369,6 +349,46 @@ components:
       - name
       - message
       - details
+      type: object
+      additionalProperties: false
+    ValidationErrorDetails:
+      properties:
+        field:
+          type: string
+        message:
+          type: string
+        value: {}
+      required:
+      - field
+      - message
+      type: object
+      additionalProperties: false
+    IntegrationEventTypeResult:
+      properties:
+        integration_event_type:
+          $ref: '#/components/schemas/IntegrationEventType'
+      required:
+      - integration_event_type
+      type: object
+      additionalProperties: false
+    IntegrationEventTypeListResult:
+      properties:
+        prev:
+          type:
+          - string
+          - 'null'
+        next:
+          type:
+          - string
+          - 'null'
+        integration_event_types:
+          items:
+            $ref: '#/components/schemas/IntegrationEventType'
+          type: array
+      required:
+      - prev
+      - next
+      - integration_event_types
       type: object
       additionalProperties: false
     IntegrationEventType:
@@ -489,26 +509,6 @@ components:
       - schema
       type: object
       description: From T, pick a set of properties whose keys are in the union K
-    IntegrationEventTypeListResult:
-      properties:
-        prev:
-          type:
-          - string
-          - 'null'
-        next:
-          type:
-          - string
-          - 'null'
-        integration_event_types:
-          items:
-            $ref: '#/components/schemas/IntegrationEventType'
-          type: array
-      required:
-      - prev
-      - next
-      - integration_event_types
-      type: object
-      additionalProperties: false
   securitySchemes:
     bearer_security:
       type: http

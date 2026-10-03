@@ -78,20 +78,6 @@ paths:
           type: integer
 components:
   schemas:
-    Location:
-      properties:
-        id:
-          type: number
-          format: double
-        name:
-          type: string
-          description: Name of the location
-          example: My Location
-      required:
-      - id
-      - name
-      type: object
-      additionalProperties: false
     ValidationError:
       properties:
         name:
@@ -106,6 +92,32 @@ components:
       - name
       - message
       - details
+      type: object
+      additionalProperties: false
+    ValidationErrorDetails:
+      properties:
+        field:
+          type: string
+        message:
+          type: string
+        value: {}
+      required:
+      - field
+      - message
+      type: object
+      additionalProperties: false
+    Location:
+      properties:
+        id:
+          type: number
+          format: double
+        name:
+          type: string
+          description: Name of the location
+          example: My Location
+      required:
+      - id
+      - name
       type: object
       additionalProperties: false
     LocationListResult:
@@ -126,18 +138,6 @@ components:
       - prev
       - next
       - locations
-      type: object
-      additionalProperties: false
-    ValidationErrorDetails:
-      properties:
-        field:
-          type: string
-        message:
-          type: string
-        value: {}
-      required:
-      - field
-      - message
       type: object
       additionalProperties: false
   securitySchemes:
