@@ -123,39 +123,6 @@ paths:
               $ref: '#/components/schemas/Pick_UpdateSharedCameraSearchInput.Exclude_keyofUpdateSharedCameraSearchInput.token__'
 components:
   schemas:
-    CreateSharedCameraSearchInput:
-      properties:
-        expiry_in_seconds:
-          type: integer
-          format: int32
-          description: The expiry time of the created Shared search view
-          example: 86400
-          maximum: 604800
-        camera_ids:
-          items:
-            type: number
-            format: double
-          type: array
-          description: The list of cameras to be shown in the VOD view.
-          example:
-          - 1
-          - 2
-          - 3
-          minItems: 1
-          maxItems: 16
-        end:
-          type: string
-          description: The timestamp for the end of the VOD search view. Should be a valid ISO 8601 string
-          example: '2023-06-29T12:20:05.533Z'
-        start:
-          type: string
-          description: The timestamp for the start of the VOD search view. Should be a valid ISO 8601 string
-          example: '2023-06-29T10:20:05.533Z'
-      required:
-      - camera_ids
-      - end
-      - start
-      type: object
     Pick_UpdateSharedCameraSearchInput.Exclude_keyofUpdateSharedCameraSearchInput.token__:
       properties:
         start:
@@ -217,6 +184,39 @@ components:
       - start
       - link
       - token
+      type: object
+    CreateSharedCameraSearchInput:
+      properties:
+        expiry_in_seconds:
+          type: integer
+          format: int32
+          description: The expiry time of the created Shared search view
+          example: 86400
+          maximum: 604800
+        camera_ids:
+          items:
+            type: number
+            format: double
+          type: array
+          description: The list of cameras to be shown in the VOD view.
+          example:
+          - 1
+          - 2
+          - 3
+          minItems: 1
+          maxItems: 16
+        end:
+          type: string
+          description: The timestamp for the end of the VOD search view. Should be a valid ISO 8601 string
+          example: '2023-06-29T12:20:05.533Z'
+        start:
+          type: string
+          description: The timestamp for the start of the VOD search view. Should be a valid ISO 8601 string
+          example: '2023-06-29T10:20:05.533Z'
+      required:
+      - camera_ids
+      - end
+      - start
       type: object
   securitySchemes:
     bearer_security:

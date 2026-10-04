@@ -284,62 +284,6 @@ paths:
               $ref: '#/components/schemas/IntegrationEventIngestionWebhookInput'
 components:
   schemas:
-    ValidationError:
-      properties:
-        name:
-          type: string
-        message:
-          type: string
-        details:
-          items:
-            $ref: '#/components/schemas/ValidationErrorDetails'
-          type: array
-      required:
-      - name
-      - message
-      - details
-      type: object
-      additionalProperties: false
-    ValidationErrorDetails:
-      properties:
-        field:
-          type: string
-        message:
-          type: string
-        value: {}
-      required:
-      - field
-      - message
-      type: object
-      additionalProperties: false
-    UpdateIntegrationEventInput:
-      properties:
-        integration_event_type_id:
-          type: integer
-          format: int32
-          description: The ID of this event's type
-          example: 1
-        attributes:
-          additionalProperties: false
-          type: object
-          description: The attributes of this event
-          example:
-            foo: bar
-        duration:
-          type: integer
-          format: int64
-          description: The event's duration, in milliseconds
-          maximum: 600000
-        buffer:
-          type: integer
-          format: int64
-          description: The event's buffer, in milliseconds
-          maximum: 120000
-      required:
-      - integration_event_type_id
-      - attributes
-      type: object
-      additionalProperties: false
     IntegrationEventIngestionWebhookInput:
       properties:
         integration_event_type_id:
@@ -378,6 +322,22 @@ components:
       - integration_device_id
       - timestamp
       - attributes
+      type: object
+      additionalProperties: false
+    ValidationError:
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        details:
+          items:
+            $ref: '#/components/schemas/ValidationErrorDetails'
+          type: array
+      required:
+      - name
+      - message
+      - details
       type: object
       additionalProperties: false
     IntegrationEvent:
@@ -441,6 +401,16 @@ components:
       - updated
       type: object
       additionalProperties: false
+    IntegrationEventListResult:
+      properties:
+        integration_events:
+          items:
+            $ref: '#/components/schemas/IntegrationEvent'
+          type: array
+      required:
+      - integration_events
+      type: object
+      additionalProperties: false
     IntegrationEventInput:
       properties:
         integration_event_type_id:
@@ -481,14 +451,16 @@ components:
       - attributes
       type: object
       additionalProperties: false
-    IntegrationEventListResult:
+    ValidationErrorDetails:
       properties:
-        integration_events:
-          items:
-            $ref: '#/components/schemas/IntegrationEvent'
-          type: array
+        field:
+          type: string
+        message:
+          type: string
+        value: {}
       required:
-      - integration_events
+      - field
+      - message
       type: object
       additionalProperties: false
     CreateIntegrationEventsInput:
@@ -501,6 +473,34 @@ components:
           minItems: 1
       required:
       - integration_events
+      type: object
+      additionalProperties: false
+    UpdateIntegrationEventInput:
+      properties:
+        integration_event_type_id:
+          type: integer
+          format: int32
+          description: The ID of this event's type
+          example: 1
+        attributes:
+          additionalProperties: false
+          type: object
+          description: The attributes of this event
+          example:
+            foo: bar
+        duration:
+          type: integer
+          format: int64
+          description: The event's duration, in milliseconds
+          maximum: 600000
+        buffer:
+          type: integer
+          format: int64
+          description: The event's buffer, in milliseconds
+          maximum: 120000
+      required:
+      - integration_event_type_id
+      - attributes
       type: object
       additionalProperties: false
   securitySchemes:

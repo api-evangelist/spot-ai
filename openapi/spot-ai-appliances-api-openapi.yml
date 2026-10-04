@@ -138,6 +138,26 @@ components:
       - online
       - offline
       type: string
+    GetAppliancesQueryResult:
+      properties:
+        prev:
+          type:
+          - string
+          - 'null'
+        next:
+          type:
+          - string
+          - 'null'
+        appliances:
+          items:
+            $ref: '#/components/schemas/Appliance'
+          type: array
+      required:
+      - prev
+      - next
+      - appliances
+      type: object
+      additionalProperties: false
     Appliance:
       properties:
         id:
@@ -187,26 +207,6 @@ components:
       - location_name
       - license_sku
       - firmware_version
-      type: object
-      additionalProperties: false
-    GetAppliancesQueryResult:
-      properties:
-        prev:
-          type:
-          - string
-          - 'null'
-        next:
-          type:
-          - string
-          - 'null'
-        appliances:
-          items:
-            $ref: '#/components/schemas/Appliance'
-          type: array
-      required:
-      - prev
-      - next
-      - appliances
       type: object
       additionalProperties: false
   securitySchemes:

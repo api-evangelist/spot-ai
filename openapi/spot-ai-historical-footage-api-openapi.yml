@@ -214,54 +214,6 @@ paths:
           type: number
 components:
   schemas:
-    historicalFootageState:
-      description: Not deprecating enums from kysely because they are used all over the place
-      enum:
-      - FAILED
-      - PROCESSING
-      - QUEUED
-      - STALLED
-      - SUCCEEDED
-      type: string
-    ApiErrorResponse:
-      properties:
-        data: {}
-        statusCode:
-          type: number
-          format: double
-        message:
-          type: string
-        name:
-          type: string
-      required:
-      - message
-      - name
-      type: object
-    CreateHistoricalFootageOutput:
-      properties:
-        id:
-          type: number
-          format: double
-        redirectId:
-          type: number
-          format: double
-      type: object
-      additionalProperties: false
-    CreateHistoricalFootageInput:
-      properties:
-        start:
-          type: string
-          description: The timestamp for the start of historical footage. Should be a valid ISO 8601 string
-          example: '2023-06-29T10:20:05.533Z'
-        end:
-          type: string
-          description: The timestamp for the end of the historical footage. Should be a valid ISO 8601 string
-          example: '2023-06-29T12:20:05.533Z'
-      required:
-      - start
-      - end
-      type: object
-      additionalProperties: false
     GetHistoricalFootage:
       properties:
         id:
@@ -306,6 +258,54 @@ components:
       - state
       - stateDescription
       - updatedAt
+      type: object
+      additionalProperties: false
+    CreateHistoricalFootageOutput:
+      properties:
+        id:
+          type: number
+          format: double
+        redirectId:
+          type: number
+          format: double
+      type: object
+      additionalProperties: false
+    ApiErrorResponse:
+      properties:
+        data: {}
+        statusCode:
+          type: number
+          format: double
+        message:
+          type: string
+        name:
+          type: string
+      required:
+      - message
+      - name
+      type: object
+    historicalFootageState:
+      description: Not deprecating enums from kysely because they are used all over the place
+      enum:
+      - FAILED
+      - PROCESSING
+      - QUEUED
+      - STALLED
+      - SUCCEEDED
+      type: string
+    CreateHistoricalFootageInput:
+      properties:
+        start:
+          type: string
+          description: The timestamp for the start of historical footage. Should be a valid ISO 8601 string
+          example: '2023-06-29T10:20:05.533Z'
+        end:
+          type: string
+          description: The timestamp for the end of the historical footage. Should be a valid ISO 8601 string
+          example: '2023-06-29T12:20:05.533Z'
+      required:
+      - start
+      - end
       type: object
       additionalProperties: false
   securitySchemes:

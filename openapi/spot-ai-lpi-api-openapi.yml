@@ -93,18 +93,6 @@ components:
       - items
       type: object
       description: From T, pick a set of properties whose keys are in the union K
-    Item:
-      properties:
-        name:
-          type: string
-        notes:
-          type: string
-        source:
-          type: string
-      required:
-      - name
-      type: object
-      additionalProperties: false
     InterestList:
       properties:
         id:
@@ -123,6 +111,18 @@ components:
       - type
       - name
       - items
+      type: object
+      additionalProperties: false
+    Item:
+      properties:
+        name:
+          type: string
+        notes:
+          type: string
+        source:
+          type: string
+      required:
+      - name
       type: object
       additionalProperties: false
   securitySchemes:

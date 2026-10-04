@@ -94,6 +94,26 @@ components:
       - details
       type: object
       additionalProperties: false
+    LocationListResult:
+      properties:
+        prev:
+          type:
+          - string
+          - 'null'
+        next:
+          type:
+          - string
+          - 'null'
+        locations:
+          items:
+            $ref: '#/components/schemas/Location'
+          type: array
+      required:
+      - prev
+      - next
+      - locations
+      type: object
+      additionalProperties: false
     ValidationErrorDetails:
       properties:
         field:
@@ -118,26 +138,6 @@ components:
       required:
       - id
       - name
-      type: object
-      additionalProperties: false
-    LocationListResult:
-      properties:
-        prev:
-          type:
-          - string
-          - 'null'
-        next:
-          type:
-          - string
-          - 'null'
-        locations:
-          items:
-            $ref: '#/components/schemas/Location'
-          type: array
-      required:
-      - prev
-      - next
-      - locations
       type: object
       additionalProperties: false
   securitySchemes:

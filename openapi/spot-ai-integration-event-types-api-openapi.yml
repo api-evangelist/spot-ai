@@ -335,34 +335,6 @@ paths:
               description: '- JSON object containing the updated integration event type information'
 components:
   schemas:
-    ValidationError:
-      properties:
-        name:
-          type: string
-        message:
-          type: string
-        details:
-          items:
-            $ref: '#/components/schemas/ValidationErrorDetails'
-          type: array
-      required:
-      - name
-      - message
-      - details
-      type: object
-      additionalProperties: false
-    ValidationErrorDetails:
-      properties:
-        field:
-          type: string
-        message:
-          type: string
-        value: {}
-      required:
-      - field
-      - message
-      type: object
-      additionalProperties: false
     IntegrationEventTypeResult:
       properties:
         integration_event_type:
@@ -391,53 +363,20 @@ components:
       - integration_event_types
       type: object
       additionalProperties: false
-    IntegrationEventType:
+    ValidationError:
       properties:
-        id:
-          type: integer
-          format: int32
-        integration_id:
-          type: integer
-          format: int32
-          description: The ID of the integration this event type is associated with
-          example: 1
         name:
           type: string
-          description: The name of the integration event type
-          example: My Integration Event Type
-          minLength: 1
-          maxLength: 40
-        duration:
-          type: integer
-          format: int64
-          description: The default duration of the integration event type, in milliseconds
-          maximum: 600000
-        buffer:
-          type: integer
-          format: int64
-          description: The default buffer of the integration event type, in milliseconds
-          maximum: 120000
-        schema:
-          additionalProperties: false
-          type: object
-          description: The schema of the integration event type, in JSON Schema format
-        created:
+        message:
           type: string
-          format: date-time
-          description: The date this integration event type was created
-          example: '2023-06-29T12:20:05.533Z'
-        updated:
-          type: string
-          format: date-time
-          description: The date this integration event type was last updated
-          example: '2023-06-29T12:20:05.533Z'
+        details:
+          items:
+            $ref: '#/components/schemas/ValidationErrorDetails'
+          type: array
       required:
-      - id
-      - integration_id
       - name
-      - schema
-      - created
-      - updated
+      - message
+      - details
       type: object
       additionalProperties: false
     Pick_IntegrationEventType.name-or-schema-or-duration-or-buffer-or-external_device_id_template_:
@@ -509,6 +448,67 @@ components:
       - schema
       type: object
       description: From T, pick a set of properties whose keys are in the union K
+    IntegrationEventType:
+      properties:
+        id:
+          type: integer
+          format: int32
+        integration_id:
+          type: integer
+          format: int32
+          description: The ID of the integration this event type is associated with
+          example: 1
+        name:
+          type: string
+          description: The name of the integration event type
+          example: My Integration Event Type
+          minLength: 1
+          maxLength: 40
+        duration:
+          type: integer
+          format: int64
+          description: The default duration of the integration event type, in milliseconds
+          maximum: 600000
+        buffer:
+          type: integer
+          format: int64
+          description: The default buffer of the integration event type, in milliseconds
+          maximum: 120000
+        schema:
+          additionalProperties: false
+          type: object
+          description: The schema of the integration event type, in JSON Schema format
+        created:
+          type: string
+          format: date-time
+          description: The date this integration event type was created
+          example: '2023-06-29T12:20:05.533Z'
+        updated:
+          type: string
+          format: date-time
+          description: The date this integration event type was last updated
+          example: '2023-06-29T12:20:05.533Z'
+      required:
+      - id
+      - integration_id
+      - name
+      - schema
+      - created
+      - updated
+      type: object
+      additionalProperties: false
+    ValidationErrorDetails:
+      properties:
+        field:
+          type: string
+        message:
+          type: string
+        value: {}
+      required:
+      - field
+      - message
+      type: object
+      additionalProperties: false
   securitySchemes:
     bearer_security:
       type: http

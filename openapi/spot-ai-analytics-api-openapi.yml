@@ -486,64 +486,38 @@ paths:
           type: number
 components:
   schemas:
-    ValidationError:
+    IntelligenceCountIdleEntity:
       properties:
-        name:
+        object_id:
           type: string
-        message:
-          type: string
-        details:
-          items:
-            $ref: '#/components/schemas/ValidationErrorDetails'
-          type: array
-      required:
-      - name
-      - message
-      - details
-      type: object
-      additionalProperties: false
-    BucketSize:
-      enum:
-      - hour
-      - day
-      - week
-      - month
-      type: string
-    ValidationErrorDetails:
-      properties:
-        field:
-          type: string
-        message:
-          type: string
-        value: {}
-      required:
-      - field
-      - message
-      type: object
-      additionalProperties: false
-    IntelligenceSegment:
-      properties:
-        length_in_secs:
+        first_ms:
           type: number
           format: double
-        start:
+        last_ms:
           type: number
           format: double
-        end:
+        idle_sum:
           type: number
           format: double
+        presence_duration:
+          type: number
+          format: double
+        queue_num:
+          type: number
+          format: double
+        crossed_left:
+          type: boolean
+        crossed_right:
+          type: boolean
       required:
-      - length_in_secs
-      - start
-      - end
+      - object_id
+      - first_ms
+      - last_ms
+      - idle_sum
+      - presence_duration
+      - queue_num
       type: object
       additionalProperties: false
-    IntelligenceEntities:
-      enum:
-      - people
-      - vehicles
-      - forklifts
-      type: string
     BaseIntelligenceIdleBucketCount:
       properties:
         bucket_ms:
@@ -583,6 +557,56 @@ components:
       - buckets
       type: object
       additionalProperties: false
+    IntelligenceEntities:
+      enum:
+      - people
+      - vehicles
+      - forklifts
+      type: string
+    SegmentResult:
+      properties:
+        start_ms:
+          type: number
+          format: double
+        end_ms:
+          type: number
+          format: double
+      required:
+      - start_ms
+      - end_ms
+      type: object
+      additionalProperties: false
+    IntelligenceSegment:
+      properties:
+        length_in_secs:
+          type: number
+          format: double
+        start:
+          type: number
+          format: double
+        end:
+          type: number
+          format: double
+      required:
+      - length_in_secs
+      - start
+      - end
+      type: object
+      additionalProperties: false
+    ApiErrorResponse:
+      properties:
+        data: {}
+        statusCode:
+          type: number
+          format: double
+        message:
+          type: string
+        name:
+          type: string
+      required:
+      - message
+      - name
+      type: object
     GetIdleQueryResult:
       properties:
         total_count:
@@ -618,73 +642,39 @@ components:
       - idle_count
       type: object
       additionalProperties: false
-    IntelligenceCountIdleEntity:
+    GetCountsQueryResult:
       properties:
-        object_id:
-          type: string
-        first_ms:
-          type: number
-          format: double
-        last_ms:
-          type: number
-          format: double
-        idle_sum:
-          type: number
-          format: double
-        presence_duration:
-          type: number
-          format: double
-        queue_num:
-          type: number
-          format: double
-        crossed_left:
-          type: boolean
-        crossed_right:
-          type: boolean
-      required:
-      - object_id
-      - first_ms
-      - last_ms
-      - idle_sum
-      - presence_duration
-      - queue_num
-      type: object
-      additionalProperties: false
-    ApiErrorResponse:
-      properties:
-        data: {}
-        statusCode:
-          type: number
-          format: double
-        message:
-          type: string
-        name:
-          type: string
-      required:
-      - message
-      - name
-      type: object
-    IntelligenceCountBucketCount:
-      properties:
-        bucket_ms:
-          type: number
-          format: double
-        idle_count:
-          type: number
-          format: double
         total_count:
           type: number
           format: double
-        left_count:
-          type: number
-          format: double
-        right_count:
-          type: number
-          format: double
+        bucket_counts:
+          items:
+            $ref: '#/components/schemas/IntelligenceCountBucketCount'
+          type: array
+        entities:
+          items:
+            $ref: '#/components/schemas/IntelligenceCountIdleEntity'
+          type: array
       required:
-      - bucket_ms
-      - idle_count
       - total_count
+      - bucket_counts
+      - entities
+      type: object
+      additionalProperties: false
+    ValidationError:
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        details:
+          items:
+            $ref: '#/components/schemas/ValidationErrorDetails'
+          type: array
+      required:
+      - name
+      - message
+      - details
       type: object
       additionalProperties: false
     BaseIntelligenceIdleEntity:
@@ -715,36 +705,46 @@ components:
       - queue_num
       type: object
       additionalProperties: false
-    GetCountsQueryResult:
+    IntelligenceCountBucketCount:
       properties:
+        bucket_ms:
+          type: number
+          format: double
+        idle_count:
+          type: number
+          format: double
         total_count:
           type: number
           format: double
-        bucket_counts:
-          items:
-            $ref: '#/components/schemas/IntelligenceCountBucketCount'
-          type: array
-        entities:
-          items:
-            $ref: '#/components/schemas/IntelligenceCountIdleEntity'
-          type: array
+        left_count:
+          type: number
+          format: double
+        right_count:
+          type: number
+          format: double
       required:
+      - bucket_ms
+      - idle_count
       - total_count
-      - bucket_counts
-      - entities
       type: object
       additionalProperties: false
-    SegmentResult:
+    BucketSize:
+      enum:
+      - hour
+      - day
+      - week
+      - month
+      type: string
+    ValidationErrorDetails:
       properties:
-        start_ms:
-          type: number
-          format: double
-        end_ms:
-          type: number
-          format: double
+        field:
+          type: string
+        message:
+          type: string
+        value: {}
       required:
-      - start_ms
-      - end_ms
+      - field
+      - message
       type: object
       additionalProperties: false
     BucketResult:

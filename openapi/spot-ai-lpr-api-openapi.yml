@@ -107,16 +107,19 @@ paths:
             type: string
 components:
   schemas:
-    LprReportTimeseries:
+    ApiErrorResponse:
       properties:
-        visits:
+        data: {}
+        statusCode:
           type: number
           format: double
-        date:
+        message:
+          type: string
+        name:
           type: string
       required:
-      - visits
-      - date
+      - message
+      - name
       type: object
     LprReport:
       properties:
@@ -134,6 +137,17 @@ components:
       - timeseries
       - summary
       - plates
+      type: object
+    LprReportTimeseries:
+      properties:
+        visits:
+          type: number
+          format: double
+        date:
+          type: string
+      required:
+      - visits
+      - date
       type: object
     LprReportPlate:
       properties:
@@ -170,20 +184,6 @@ components:
       - most_visits_by_plate
       - total_visits
       - unique_plates
-      type: object
-    ApiErrorResponse:
-      properties:
-        data: {}
-        statusCode:
-          type: number
-          format: double
-        message:
-          type: string
-        name:
-          type: string
-      required:
-      - message
-      - name
       type: object
   securitySchemes:
     bearer_security:
