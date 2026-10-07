@@ -239,6 +239,8 @@ apis:
   - type: OpenAPI
     url: openapi/spot-ai-zones-api-openapi.yml
 common:
+- type: Plans
+  url: plans/spot-ai-plans-pricing.yml
 - type: TrustCenter
   url: security/spot-trust-center.yml
 - type: DomainSecurity
