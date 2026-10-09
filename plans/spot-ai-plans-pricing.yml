@@ -1,0 +1,23 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://www.spot.ai/
+sources:
+- https://www.spot.ai/
+- https://www.spot.ai/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: negotiated
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-07'
+published: false
+note: No numeric price is published on the pricing page; Marketing homepage for Spot AI video AI product;
+  no numeric pricing shown, only 'Request a Demo' / 'Contact Sales' calls to action. Mentions cameras
+  'at no cost to you' but no prices.
+plan_count: 0
+plans: []
