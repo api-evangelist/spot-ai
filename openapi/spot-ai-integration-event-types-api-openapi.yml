@@ -335,14 +335,6 @@ paths:
               description: '- JSON object containing the updated integration event type information'
 components:
   schemas:
-    IntegrationEventTypeResult:
-      properties:
-        integration_event_type:
-          $ref: '#/components/schemas/IntegrationEventType'
-      required:
-      - integration_event_type
-      type: object
-      additionalProperties: false
     IntegrationEventTypeListResult:
       properties:
         prev:
@@ -361,22 +353,6 @@ components:
       - prev
       - next
       - integration_event_types
-      type: object
-      additionalProperties: false
-    ValidationError:
-      properties:
-        name:
-          type: string
-        message:
-          type: string
-        details:
-          items:
-            $ref: '#/components/schemas/ValidationErrorDetails'
-          type: array
-      required:
-      - name
-      - message
-      - details
       type: object
       additionalProperties: false
     Pick_IntegrationEventType.name-or-schema-or-duration-or-buffer-or-external_device_id_template_:
@@ -497,6 +473,22 @@ components:
       - updated
       type: object
       additionalProperties: false
+    ValidationError:
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        details:
+          items:
+            $ref: '#/components/schemas/ValidationErrorDetails'
+          type: array
+      required:
+      - name
+      - message
+      - details
+      type: object
+      additionalProperties: false
     ValidationErrorDetails:
       properties:
         field:
@@ -507,6 +499,14 @@ components:
       required:
       - field
       - message
+      type: object
+      additionalProperties: false
+    IntegrationEventTypeResult:
+      properties:
+        integration_event_type:
+          $ref: '#/components/schemas/IntegrationEventType'
+      required:
+      - integration_event_type
       type: object
       additionalProperties: false
   securitySchemes:

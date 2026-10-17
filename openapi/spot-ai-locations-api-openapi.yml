@@ -78,6 +78,18 @@ paths:
           type: integer
 components:
   schemas:
+    ValidationErrorDetails:
+      properties:
+        field:
+          type: string
+        message:
+          type: string
+        value: {}
+      required:
+      - field
+      - message
+      type: object
+      additionalProperties: false
     ValidationError:
       properties:
         name:
@@ -112,18 +124,6 @@ components:
       - prev
       - next
       - locations
-      type: object
-      additionalProperties: false
-    ValidationErrorDetails:
-      properties:
-        field:
-          type: string
-        message:
-          type: string
-        value: {}
-      required:
-      - field
-      - message
       type: object
       additionalProperties: false
     Location:

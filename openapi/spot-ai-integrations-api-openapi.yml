@@ -237,11 +237,44 @@ paths:
               description: '- The integration to create'
 components:
   schemas:
-    IntegrationTypeName:
-      enum:
-      - custom
-      - pos
-      type: string
+    IntegrationListResult:
+      properties:
+        integrations:
+          items:
+            $ref: '#/components/schemas/Integration'
+          type: array
+      required:
+      - integrations
+      type: object
+      additionalProperties: false
+    UpdateIntegrationInput:
+      properties:
+        name:
+          type: string
+          description: The updated name of the integration
+          example: My Integration
+          minLength: 1
+          maxLength: 40
+      required:
+      - name
+      type: object
+      additionalProperties: false
+    CreateIntegrationInput:
+      properties:
+        name:
+          type: string
+          description: The name of the integration
+          example: My Integration
+          minLength: 1
+          maxLength: 40
+        integration_type:
+          $ref: '#/components/schemas/IntegrationTypeName'
+          description: 'The type of integration (default: custom)'
+          example: custom
+      required:
+      - name
+      type: object
+      additionalProperties: false
     Integration:
       properties:
         id:
@@ -276,14 +309,6 @@ components:
       - updated
       type: object
       additionalProperties: false
-    IntegrationResult:
-      properties:
-        integration:
-          $ref: '#/components/schemas/Integration'
-      required:
-      - integration
-      type: object
-      additionalProperties: false
     ValidationError:
       properties:
         name:
@@ -300,28 +325,6 @@ components:
       - details
       type: object
       additionalProperties: false
-    UpdateIntegrationInput:
-      properties:
-        name:
-          type: string
-          description: The updated name of the integration
-          example: My Integration
-          minLength: 1
-          maxLength: 40
-      required:
-      - name
-      type: object
-      additionalProperties: false
-    IntegrationListResult:
-      properties:
-        integrations:
-          items:
-            $ref: '#/components/schemas/Integration'
-          type: array
-      required:
-      - integrations
-      type: object
-      additionalProperties: false
     ValidationErrorDetails:
       properties:
         field:
@@ -334,22 +337,19 @@ components:
       - message
       type: object
       additionalProperties: false
-    CreateIntegrationInput:
+    IntegrationResult:
       properties:
-        name:
-          type: string
-          description: The name of the integration
-          example: My Integration
-          minLength: 1
-          maxLength: 40
-        integration_type:
-          $ref: '#/components/schemas/IntegrationTypeName'
-          description: 'The type of integration (default: custom)'
-          example: custom
+        integration:
+          $ref: '#/components/schemas/Integration'
       required:
-      - name
+      - integration
       type: object
       additionalProperties: false
+    IntegrationTypeName:
+      enum:
+      - custom
+      - pos
+      type: string
   securitySchemes:
     bearer_security:
       type: http

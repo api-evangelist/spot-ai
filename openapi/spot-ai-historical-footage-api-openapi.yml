@@ -214,6 +214,39 @@ paths:
           type: number
 components:
   schemas:
+    CreateHistoricalFootageOutput:
+      properties:
+        id:
+          type: number
+          format: double
+        redirectId:
+          type: number
+          format: double
+      type: object
+      additionalProperties: false
+    ApiErrorResponse:
+      properties:
+        data: {}
+        statusCode:
+          type: number
+          format: double
+        message:
+          type: string
+        name:
+          type: string
+      required:
+      - message
+      - name
+      type: object
+    historicalFootageState:
+      description: Not deprecating enums from kysely because they are used all over the place
+      enum:
+      - FAILED
+      - PROCESSING
+      - QUEUED
+      - STALLED
+      - SUCCEEDED
+      type: string
     GetHistoricalFootage:
       properties:
         id:
@@ -260,39 +293,6 @@ components:
       - updatedAt
       type: object
       additionalProperties: false
-    CreateHistoricalFootageOutput:
-      properties:
-        id:
-          type: number
-          format: double
-        redirectId:
-          type: number
-          format: double
-      type: object
-      additionalProperties: false
-    ApiErrorResponse:
-      properties:
-        data: {}
-        statusCode:
-          type: number
-          format: double
-        message:
-          type: string
-        name:
-          type: string
-      required:
-      - message
-      - name
-      type: object
-    historicalFootageState:
-      description: Not deprecating enums from kysely because they are used all over the place
-      enum:
-      - FAILED
-      - PROCESSING
-      - QUEUED
-      - STALLED
-      - SUCCEEDED
-      type: string
     CreateHistoricalFootageInput:
       properties:
         start:

@@ -55,16 +55,6 @@ paths:
           type: number
 components:
   schemas:
-    GetZonesQueryResult:
-      properties:
-        zones:
-          items:
-            $ref: '#/components/schemas/Zone'
-          type: array
-      required:
-      - zones
-      type: object
-      additionalProperties: false
     ZonePoint:
       properties:
         y:
@@ -77,10 +67,6 @@ components:
       - y
       - x
       type: object
-    ZoneShape:
-      items:
-        $ref: '#/components/schemas/ZonePoint'
-      type: array
     Zone:
       properties:
         cameraId:
@@ -106,6 +92,20 @@ components:
       - name
       - id
       type: object
+    GetZonesQueryResult:
+      properties:
+        zones:
+          items:
+            $ref: '#/components/schemas/Zone'
+          type: array
+      required:
+      - zones
+      type: object
+      additionalProperties: false
+    ZoneShape:
+      items:
+        $ref: '#/components/schemas/ZonePoint'
+      type: array
   securitySchemes:
     bearer_security:
       type: http

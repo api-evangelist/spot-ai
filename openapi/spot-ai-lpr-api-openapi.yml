@@ -107,20 +107,6 @@ paths:
             type: string
 components:
   schemas:
-    ApiErrorResponse:
-      properties:
-        data: {}
-        statusCode:
-          type: number
-          format: double
-        message:
-          type: string
-        name:
-          type: string
-      required:
-      - message
-      - name
-      type: object
     LprReport:
       properties:
         timeseries:
@@ -137,6 +123,20 @@ components:
       - timeseries
       - summary
       - plates
+      type: object
+    ApiErrorResponse:
+      properties:
+        data: {}
+        statusCode:
+          type: number
+          format: double
+        message:
+          type: string
+        name:
+          type: string
+      required:
+      - message
+      - name
       type: object
     LprReportTimeseries:
       properties:
